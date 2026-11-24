@@ -1,0 +1,78 @@
+{
+  "source": "Nishizaki et al., Harvard Dataverse 10.7910/DVN/QFY6L9 v1.0, FID02_CalculationSpreadsheet.xlsx, 5-mm NMR tubes",
+  "licence": "CC0-1.0 for sheet values. GPL-3.0-or-later for the rest of the fixture.",
+  "assay": {
+    "assay_id": "FID02-04-01",
+    "sample": {
+      "run_id": "FID02-04-1-1.jdf", "preparation_id": "FID02-0724_2019-04",
+      "area": 0.55648986, "scans": 32, "area_mode": "summed", "receiver_gain": 30,
+      "probe": "3448", "pulse_sequence": "single_pulse_dec", "decoupling": "13C MPF8",
+      "temperature": 25, "solvent": "DMSO-d6", "tube": "5 mm"
+    },
+    "calibrant": {
+      "run_id": "FID02-01-1-1.jdf", "preparation_id": "FID02-0724_2019-01",
+      "area": 0.35070252, "scans": 32, "area_mode": "summed", "receiver_gain": 30,
+      "probe": "3448", "pulse_sequence": "single_pulse_dec", "decoupling": "13C MPF8",
+      "temperature": 25, "solvent": "DMSO-d6", "tube": "5 mm"
+    },
+    "sample_signals": ["I149"], "calibrant_signals": ["H146"],
+    "N_a": 3, "N_s": 6,
+    "c_s_route": "prepared",
+    "m_s": {"value": 1.534, "standard_u": 0.004, "unit": "mg", "source": "FID02 calibrant recipe", "source_ids": ["balance:fixture-FID02"]},
+    "w_s": {"value": 0.999, "standard_u": 0.0005, "unit": "fraction", "source": "FID02 D146 basis"},
+    "M_s": {"value": 94.13, "standard_u": 0.003, "unit": "g/mol", "source": "FID02 D146 basis"},
+    "V_s": {"value": 6.000, "standard_u": 0.006, "unit": "mL", "source": "FID02 calibrant recipe", "source_ids": ["volume:fixture-FID02"]},
+    "M_a": {"value": 194.19, "standard_u": 0.005, "unit": "g/mol", "source": "FID02 E149 basis"},
+    "V_a": {"value": 9.000, "standard_u": 0.009, "unit": "mL", "source": "FID02 sample recipe", "source_ids": ["volume:fixture-FID02"]},
+    "m_a": {"value": 15.130, "standard_u": 0.004, "unit": "mg", "source": "FID02 sample recipe", "source_ids": ["balance:fixture-FID02"]},
+    "K": {"value": 0.9986902369776202, "standard_u": 0.003, "unit": "ratio", "source": "FID02 F149/F146 (7.36572/7.37538)"},
+    "D": {"value": 1, "standard_u": 0.002, "unit": "ratio", "source": "Illustrative drift factor"},
+    "R_relative_u": 0.004, "R_u_source": "Illustrative integral repeatability",
+    "correlations": [
+      {"inputs": ["m_s", "m_a"], "r": 0.3, "source": "Illustrative weighing correlation"},
+      {"inputs": ["V_s", "V_a"], "r": 0.5, "source": "Illustrative volume correlation"}
+    ],
+    "k": {"value": 2, "source": "Illustrative coverage factor"}
+  },
+  "expected": {
+    "R": 1.586786032, "K": 0.998690237, "c_s": 2.713385743, "c_a": 8.599846658,
+    "purity": 0.9933931264, "purity_relative_to_sheet_basis": 0.9943875139,
+    "sensitivities": {
+      "R": 0.6260410078, "m_s": 0.6475835244, "w_s": 0.9943875139, "M_s": -0.01055341683,
+      "V_s": -0.1655655211, "M_a": 0.005115573029, "V_a": 0.110377014, "m_a": -0.06565717954,
+      "K": 0.9946959424, "D": 0.9933931264
+    },
+    "covariance_terms": [-4.081776742e-07, -9.868299036e-07],
+    "variance": 3.624769327e-05, "standard_u": 0.006020605723,
+    "relative_standard_u": 0.006060647656, "expanded_u": 0.01204121145,
+    "purity_at_K_1": 0.9946959424, "purity_at_K_1_02": 1.014589861
+  },
+  "illustrative_transfer": {
+    "note": "Illustrative transfer evidence for the hand-worked case, GPL-3.0-or-later. The acquisition settings below describe synthetic runs. Not from the deposit: the FID02 pair record, scale evidence, instrument identity, fill and the reader scaling of the sheet areas are NOT FOUND.",
+    "pair": {
+      "kind": "record", "sample_run_id": "FID02-04-1-1.jdf", "sample_preparation_id": "FID02-0724_2019-04",
+      "calibrant_run_id": "FID02-01-1-1.jdf", "calibrant_preparation_id": "FID02-0724_2019-01",
+      "source": "Illustrative pair record"
+    },
+    "S": {"value": 0.98, "standard_u": 0.003, "unit": "ratio", "source": "Illustrative receiver scale evidence"},
+    "S_gains": [30, 30],
+    "S_storage_scales": ["JEOL", "JEOL"],
+    "runs": {"instrument": "Illustrative instrument", "excitation": "Illustrative 90 degree pulse",
+             "fill": "Illustrative fill", "reader_scale": 1, "storage_scale": "JEOL",
+             "calibrated_flip_angle_deg": 90, "relaxation_delay_s": 60,
+             "acquisition_time_s": 8, "spectral_width_hz": 4096, "complex_points": 32768,
+             "observe_frequency_mhz": 400},
+    "expected": {
+      "c_a": 8.4278497248, "purity": 0.973525263882, "purity_relative_to_sheet_basis": 0.974499763646,
+      "sensitivities": {
+        "R": 0.61352018764, "m_s": 0.6346318539, "w_s": 0.974499763646, "M_s": -0.0103423484955,
+        "V_s": -0.162254210647, "M_a": 0.00501326156796, "V_a": 0.108169473765, "m_a": -0.0643440359473,
+        "K": 0.974802023527, "D": 0.973525263882, "S": 0.99339312641
+      },
+      "covariance_terms": [-3.92013838278e-07, -9.47751439417e-07],
+      "variance": 4.36937537513e-05, "standard_u": 0.00661012509347,
+      "relative_standard_u": 0.00678988552091, "expanded_u": 0.0132202501869,
+      "purity_at_K_1": 0.974802023527, "purity_at_K_1_02": 0.994298063997
+    }
+  }
+}

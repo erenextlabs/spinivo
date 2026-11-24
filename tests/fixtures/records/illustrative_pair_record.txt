@@ -1,0 +1,3 @@
+Illustrative pair evidence for synthetic tests (GPL-3.0-or-later).
+Record example: sample-run (sample-prep), calibrant-run (calibrant-prep).
+Pipeline example: FID02-04-1-1.jdf (FID02-0724_2019-04), FID02-01-1-1.jdf (FID02-0724_2019-01).

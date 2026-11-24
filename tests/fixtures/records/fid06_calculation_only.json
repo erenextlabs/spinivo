@@ -1,0 +1,14 @@
+{
+  "schema": "spinivo.assay/1", "mode": "calculation_only", "assay_id": "FID06-INH-IC",
+  "notes": "Entered areas, counts and masses: Nishizaki FID06 Sheet1 row 5 (CC0-1.0), as in internal_standard_cases.json. Uncertainties, correlation and k are illustrative (GPL-3.0-or-later).",
+  "run": {"run_id": "FID06", "preparation_id": "FID06-row5"},
+  "signals": {"analyte": [{"name": "H5", "area": 1.79906664, "area_source": "Sheet1 H5"}, {"name": "I5", "area": 1.80570143, "area_source": "Sheet1 I5"}],
+              "standard": [{"name": "G5", "area": 1.23461854, "area_source": "Sheet1 G5"}]},
+  "N_a": 4, "N_s": 18, "R_relative_u": 0.0030, "R_u_source": "Illustrative integral repeatability", "k": {"value": 2, "source": "Illustrative coverage factor"},
+  "quantities": {"M_a": {"value": 137.139, "standard_u": 0.0030, "unit": "g/mol", "source": "FID06 D5 formula, illustrative u"},
+                 "M_s": {"value": 226.5, "standard_u": 0.0050, "unit": "g/mol", "source": "FID06 C5 formula, illustrative u"},
+                 "m_s": {"value": 1.064, "standard_u": 0.0040, "unit": "mg", "source": "FID06 C5 formula, illustrative u", "source_ids": ["balance:fixture-FID06"]},
+                 "m_a": {"value": 8.463, "standard_u": 0.0040, "unit": "mg", "source": "FID06 D5 formula, illustrative u", "source_ids": ["balance:fixture-FID06"]},
+                 "w_s": {"value": 0.999, "standard_u": 0.0005, "unit": "fraction", "source": "FID06 C5 formula and A10, illustrative u"}},
+  "correlations": [{"inputs": ["m_s", "m_a"], "r": 0.30, "source": "Illustrative weighing correlation"}]
+}

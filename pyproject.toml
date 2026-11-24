@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spinivo"
+dynamic = ["version"]
+authors = [{name = "Erenext LLC", email = "spinivo@erenext.com"}]
+readme = "README.md"
+requires-python = ">=3.11"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE", "NOTICE"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+]
+dependencies = ["numpy>=1.23.5", "nmrglue>=0.12"]
+
+[project.urls]
+Homepage = "https://github.com/erenextlabs/spinivo"
+Source = "https://github.com/erenextlabs/spinivo"
+Issues = "https://github.com/erenextlabs/spinivo/issues"
+
+[project.scripts]
+spinivo = "spinivo.cli:main"
+
+[tool.setuptools.dynamic]
+version = {attr = "spinivo.__version__"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

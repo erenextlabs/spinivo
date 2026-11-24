@@ -1,0 +1,21 @@
+Spinivo
+Copyright 2026 Erenext LLC
+
+Spinivo uses the GNU General Public License, version 3 or later
+(GPL-3.0-or-later). The full licence text is in LICENSE.
+
+Third-party data credits
+
+Bruker fixture and derived values
+Jingyi Hu, "qNMRrawdata_EnhancingPolyketideProduction", Zenodo.
+https://doi.org/10.5281/zenodo.17083860
+CC BY 4.0, https://creativecommons.org/licenses/by/4.0/
+The fixture is a subset of experiment 833-1-qnmr/10. The acqus and fid
+files have unchanged bytes in a renamed folder. The processing reference
+and integral case JSON fixtures also contain values derived from this experiment.
+
+JEOL fixtures and workbook values
+Nishizaki et al., Harvard Dataverse, version 1.0, deposited by Guido Pauli.
+https://doi.org/10.7910/DVN/QFY6L9
+CC0 1.0, https://creativecommons.org/publicdomain/zero/1.0/
+Two JDF fixtures have unchanged bytes and new file names.

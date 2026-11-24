@@ -1,0 +1,16 @@
+{
+  "schema": "spinivo.assay/1", "mode": "external_calibration", "assay_id": "synthetic-external",
+  "notes": "Synthetic loader example (GPL-3.0-or-later): the two committed fixtures are not a real pair, so it cannot pass. All values are illustrative.",
+  "sample": {"run_id": "sample-run", "file": "../jeol/nishizaki_fid02_ma_dmso2_d20s_ns32.jdf", "preparation_id": "sample-prep", "noise_bounds_ppm": [1.55, 1.85], "reference": {"shift_ppm": 0, "source": "JDF x_offset"},
+             "conditions": {"area_mode": "summed", "solvent": "DMSO-d6"}, "recovery": {"calibrated_flip_angle_deg": 90, "calibration_source": "Illustrative", "extra_recovery_s": 0}},
+  "calibrant": {"run_id": "calibrant-run", "file": "../bruker/zenodo17083860_833-1/10", "preparation_id": "calibrant-prep", "noise_bounds_ppm": [-2.0, -1.5], "reference": {"shift_ppm": 0, "source": "acqus SFO1"},
+                "conditions": {"area_mode": "summed", "solvent": "DMSO-d6"}, "recovery": {"calibrated_90_us": 10, "calibration_source": "Illustrative", "extra_recovery_s": 0}},
+  "signals": {"sample": [{"name": "MA", "bounds_ppm": [6.17, 6.28], "t1_s": 2.0, "t1_source": "Illustrative T1"}], "calibrant": [{"name": "B764", "bounds_ppm": [7.64, 7.69], "t1_s": 2.0, "t1_source": "Illustrative T1"}]},
+  "N_a": 2, "N_s": 1, "R_relative_u": 0.004, "R_u_source": "Illustrative integral repeatability", "k": {"value": 2, "source": "Illustrative coverage factor"}, "c_s_route": "certified",
+  "quantities": {"c_s": {"value": 2.7, "standard_u": 0.01, "unit": "mmol/L", "source": "Illustrative certificate"}, "M_a": {"value": 116.07, "standard_u": 0.003, "unit": "g/mol", "source": "Illustrative"},
+                 "V_a": {"value": 6.0, "standard_u": 0.006, "unit": "mL", "source": "Illustrative"}, "m_a": {"value": 4.226, "standard_u": 0.004, "unit": "mg", "source": "Illustrative"},
+                 "K": {"value": 1, "standard_u": 0.003, "unit": "ratio", "source": "Illustrative"}, "D": {"value": 1, "standard_u": 0.002, "unit": "ratio", "source": "Illustrative"}},
+  "covariances": [{"inputs": ["K", "D"], "value": 0, "units": ["ratio", "ratio"], "source": "Illustrative", "independence_reason": "Separate evidence"}],
+  "pair": {"kind": "record", "sample_run_id": "sample-run", "sample_preparation_id": "sample-prep", "calibrant_run_id": "calibrant-run", "calibrant_preparation_id": "calibrant-prep", "source": "illustrative_pair_record.txt"},
+  "scale": {"direction": "sample/calibrant", "S": {"value": 1, "standard_u": 0.01, "unit": "ratio", "source": "Illustrative scale evidence"}, "gains": [30, 42.68], "storage_scales": ["JEOL", "NC=-6"]}
+}

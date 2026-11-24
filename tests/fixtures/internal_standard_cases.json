@@ -1,0 +1,39 @@
+{
+  "source": "Nishizaki et al., Harvard Dataverse 10.7910/DVN/QFY6L9 v1.0, FID06_CalculationSpreadsheet.xlsx, Sheet1",
+  "licence": "CC0-1.0 for sheet values. GPL-3.0-or-later for the rest of the fixture.",
+  "note": "Uncertainties, the correlation and the coverage factor are illustrative project choices.",
+  "input_sources": {
+    "assay_id": "Project fixture ID for Sheet1 row 5 (INH + IC)",
+    "tube_ids": "Project tube label for both signals in INH + IC, Sheet1 A5",
+    "analyte_areas": ["H5", "I5"],
+    "standard_areas": ["G5"],
+    "proton_counts": "N_a and N_s from the K5 formula"
+  },
+  "assay": {
+    "assay_id": "FID06-INH-IC",
+    "analyte_tube_id": "FID06-row5", "standard_tube_id": "FID06-row5",
+    "analyte_areas": [1.79906664, 1.80570143],
+    "standard_areas": [1.23461854],
+    "analyte_signals": ["H5", "I5"], "standard_signals": ["G5"],
+    "N_a": 4, "N_s": 18,
+    "M_a": {"value": 137.139, "standard_u": 0.0030, "unit": "g/mol", "source": "FID06 D5 formula, illustrative u"},
+    "M_s": {"value": 226.5, "standard_u": 0.0050, "unit": "g/mol", "source": "FID06 C5 formula, illustrative u"},
+    "m_s": {"value": 1.064, "standard_u": 0.0040, "unit": "mg", "source": "FID06 C5 formula, illustrative u", "source_ids": ["balance:fixture-FID06"]},
+    "m_a": {"value": 8.463, "standard_u": 0.0040, "unit": "mg", "source": "FID06 D5 formula, illustrative u", "source_ids": ["balance:fixture-FID06"]},
+    "w_s": {"value": 0.999, "standard_u": 0.0005, "unit": "fraction", "source": "FID06 C5 formula and A10, illustrative u"},
+    "R_relative_u": 0.0030,
+    "R_u_source": "Illustrative integral repeatability",
+    "correlations": [{"inputs": ["m_s", "m_a"], "r": 0.30, "source": "Illustrative weighing correlation"}],
+    "k": {"value": 2, "source": "Illustrative coverage factor"}
+  },
+  "expected": {
+    "I_a": 3.60476807, "I_s": 1.23461854, "R": 2.919742376,
+    "purity": 0.9991543747, "purity_source": "Sheet1 L5",
+    "sensitivities": {"R": 3.422063476e-1, "M_a": 7.285705559e-3, "M_s": -4.411277592e-3, "m_s": 9.390548634e-1, "m_a": -1.180614882e-1, "w_s": 1.000154529},
+    "contributions": {"R": 2.997463124e-3, "M_a": 2.185711668e-5, "M_s": -2.205638796e-5, "m_s": 3.756219454e-3, "m_a": -4.722459528e-4, "w_s": 5.000772646e-4},
+    "covariance_term": -1.064315661e-6, "covariance_share": -0.04729511598,
+    "variance": 2.250371183e-5, "standard_u": 4.743807735e-3,
+    "relative_standard_u": 4.747822615e-3, "expanded_u": 9.487615471e-3,
+    "text": ["Purity = 99.92 %, u_c = 0.47 %", "U = 0.95 % with k = 2"]
+  }
+}

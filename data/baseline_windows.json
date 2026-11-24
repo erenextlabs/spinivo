@@ -1,0 +1,1972 @@
+[
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190711_RG30_D20s_qH-1-1.jdf": "45a10bf69abed05f4fd1c9e0871240b1b30c9052ad01b9162b9c497709832d4a"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern3/0711_2019/01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190711_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   2.9,
+   3.01
+  ],
+  "digests": {
+   "01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190711_RG30_D20s_qH-1-1.jdf": "45a10bf69abed05f4fd1c9e0871240b1b30c9052ad01b9162b9c497709832d4a"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern3/0711_2019/01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190711_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190711_RG30_D20s_qH-1-1.jdf": "419f2c1e24fe59883364299aed806b2e3387def4e2be2568c67ae0e4bd39d7a9"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern3/0711_2019/02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190711_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   2.9,
+   3.01
+  ],
+  "digests": {
+   "02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190711_RG30_D20s_qH-1-1.jdf": "419f2c1e24fe59883364299aed806b2e3387def4e2be2568c67ae0e4bd39d7a9"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern3/0711_2019/02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190711_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190711_RG30_D20s_qH-1-1.jdf": "96e8d88cd027d04cc35c724f5be5c99e734e845863451465decd87de6207f03f"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern3/0711_2019/03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190711_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   2.9,
+   3.01
+  ],
+  "digests": {
+   "03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190711_RG30_D20s_qH-1-1.jdf": "96e8d88cd027d04cc35c724f5be5c99e734e845863451465decd87de6207f03f"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern3/0711_2019/03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190711_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo1907011_RG30_D20s_qH-1-1.jdf": "d8ab42706ec1f647429a2651b0703b11cebd411d56193a4c0a7a0ec2f3c20125"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern3/0711_2019/04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo1907011_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   3.79,
+   3.9
+  ],
+  "digests": {
+   "04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo1907011_RG30_D20s_qH-1-1.jdf": "d8ab42706ec1f647429a2651b0703b11cebd411d56193a4c0a7a0ec2f3c20125"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern3/0711_2019/04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo1907011_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190725_RG30_D20s_qH-1-1.jdf": "2f6b28c77548fb4ee4428f994a7db4f70b5393da7a1ed625acd47b0f8809de11"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern3/0725_2019/01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190725_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   2.9,
+   3.01
+  ],
+  "digests": {
+   "01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190725_RG30_D20s_qH-1-1.jdf": "2f6b28c77548fb4ee4428f994a7db4f70b5393da7a1ed625acd47b0f8809de11"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern3/0725_2019/01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190725_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190725_RG30_D20s_qH-1-1.jdf": "df5b3a7244e9f07520163202ec783c4631fa17bafed670bd59260171c5aedbaa"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern3/0725_2019/02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190725_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   2.9,
+   3.01
+  ],
+  "digests": {
+   "02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190725_RG30_D20s_qH-1-1.jdf": "df5b3a7244e9f07520163202ec783c4631fa17bafed670bd59260171c5aedbaa"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern3/0725_2019/02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190725_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190725_RG30_D20s_qH-1-1.jdf": "8652c2dd9d7073c0ba06e7365827b578e180cb102ae0a46db2960e186d652d1a"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern3/0725_2019/03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190725_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   2.9,
+   3.01
+  ],
+  "digests": {
+   "03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190725_RG30_D20s_qH-1-1.jdf": "8652c2dd9d7073c0ba06e7365827b578e180cb102ae0a46db2960e186d652d1a"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern3/0725_2019/03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190725_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo190725_RG30_D20s_qH-1-1.jdf": "6c90a09f7f194214bd4d79a527d6038df50bab683e354a1cc11e2d3c88ca7cb9"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern3/0725_2019/04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo190725_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   3.79,
+   3.9
+  ],
+  "digests": {
+   "04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo190725_RG30_D20s_qH-1-1.jdf": "6c90a09f7f194214bd4d79a527d6038df50bab683e354a1cc11e2d3c88ca7cb9"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern3/0725_2019/04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo190725_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190727_RG30_D20s_qH-1-1.jdf": "631d3b173407f3f6a0f9d031c7ac2e297acfefe7bfd4f3c411f9a97dc7850fea"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern3/0727_2019/01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190727_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   2.9,
+   3.01
+  ],
+  "digests": {
+   "01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190727_RG30_D20s_qH-1-1.jdf": "631d3b173407f3f6a0f9d031c7ac2e297acfefe7bfd4f3c411f9a97dc7850fea"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern3/0727_2019/01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190727_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190727_RG30_D20s_qH-1-1.jdf": "d319f7b915746f030e5157ed5f9e50db44b0f4d10002e60bb1997e71ffc92011"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern3/0727_2019/02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190727_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   2.9,
+   3.01
+  ],
+  "digests": {
+   "02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190727_RG30_D20s_qH-1-1.jdf": "d319f7b915746f030e5157ed5f9e50db44b0f4d10002e60bb1997e71ffc92011"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern3/0727_2019/02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190727_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190727_RG30_D20s_qH-1-1.jdf": "45edc5ef12ac52266683f11801713bf8c886af4844c0c7cbe511b34b9fb7e308"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern3/0727_2019/03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190727_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   2.9,
+   3.01
+  ],
+  "digests": {
+   "03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190727_RG30_D20s_qH-1-1.jdf": "45edc5ef12ac52266683f11801713bf8c886af4844c0c7cbe511b34b9fb7e308"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern3/0727_2019/03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190727_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo190727_RG30_D20s_qH-1-1.jdf": "6a511c245b3e18a4af2bde41c145866e158c3611f7bd3b8bfdba44e14bdd9966"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern3/0727_2019/04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo190727_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   3.79,
+   3.9
+  ],
+  "digests": {
+   "04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo190727_RG30_D20s_qH-1-1.jdf": "6a511c245b3e18a4af2bde41c145866e158c3611f7bd3b8bfdba44e14bdd9966"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern3/0727_2019/04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo190727_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190711_RG30_D20s_qH-1-1.jdf": "4fe8f543a552e298dfd3b5e830ffbab172da355db84ecefc95a275513ae3ce81"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0711_2019/01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190711_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   2.9,
+   3.01
+  ],
+  "digests": {
+   "01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190711_RG30_D20s_qH-1-1.jdf": "4fe8f543a552e298dfd3b5e830ffbab172da355db84ecefc95a275513ae3ce81"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0711_2019/01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190711_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190711_RG30_D20s_qH-1-1.jdf": "4ff2c20358c483e7a597edf31a7c030b699a444f4470302a6aa3052efe8ea27c"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0711_2019/02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190711_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   2.9,
+   3.01
+  ],
+  "digests": {
+   "02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190711_RG30_D20s_qH-1-1.jdf": "4ff2c20358c483e7a597edf31a7c030b699a444f4470302a6aa3052efe8ea27c"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0711_2019/02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190711_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190711_RG30_D20s_qH-1-1.jdf": "7fb5d5b28de520241ea3e60a838101a4aae2c90a4961da5657b646fff1ae969e"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0711_2019/03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190711_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   2.9,
+   3.01
+  ],
+  "digests": {
+   "03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190711_RG30_D20s_qH-1-1.jdf": "7fb5d5b28de520241ea3e60a838101a4aae2c90a4961da5657b646fff1ae969e"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0711_2019/03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190711_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo1907011_RG30_D20s_qH-1-1.jdf": "a260ab47383b41ca228e002bdd57a45be6a884c4d3066e54db626eb7cc2575e1"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0711_2019/04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo1907011_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   3.79,
+   3.9
+  ],
+  "digests": {
+   "04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo1907011_RG30_D20s_qH-1-1.jdf": "a260ab47383b41ca228e002bdd57a45be6a884c4d3066e54db626eb7cc2575e1"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0711_2019/04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo1907011_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190718_RG30_D20s_qH-1-1.jdf": "2810803aa0c0d3f4a27ea4e45f4f30718f5f813cd9831d333ea444451f8a7c1b"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0718_2019/01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190718_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   2.9,
+   3.01
+  ],
+  "digests": {
+   "01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190718_RG30_D20s_qH-1-1.jdf": "2810803aa0c0d3f4a27ea4e45f4f30718f5f813cd9831d333ea444451f8a7c1b"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0718_2019/01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190718_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190718_RG30_D20s_qH-1-1.jdf": "8d671f192f7057f192d2053a4046a6af0bd33cccea561197c22b8d557060f285"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0718_2019/02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190718_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   2.9,
+   3.01
+  ],
+  "digests": {
+   "02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190718_RG30_D20s_qH-1-1.jdf": "8d671f192f7057f192d2053a4046a6af0bd33cccea561197c22b8d557060f285"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0718_2019/02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190718_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190718_RG30_D20s_qH-1-1.jdf": "0ebd6ef1239f21737a8551ff6b5c2bafeb4262e5be54e5e125427b41f4a6ee1b"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0718_2019/03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190718_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   2.9,
+   3.01
+  ],
+  "digests": {
+   "03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190718_RG30_D20s_qH-1-1.jdf": "0ebd6ef1239f21737a8551ff6b5c2bafeb4262e5be54e5e125427b41f4a6ee1b"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0718_2019/03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190718_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo1907018_RG30_D20s_qH-1-1.jdf": "1b788b7b316c51030ae004d8d396cff6c8d763c96953837abcaead9749016bf3"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0718_2019/04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo1907018_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   3.79,
+   3.9
+  ],
+  "digests": {
+   "04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo1907018_RG30_D20s_qH-1-1.jdf": "1b788b7b316c51030ae004d8d396cff6c8d763c96953837abcaead9749016bf3"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0718_2019/04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo1907018_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190719_RG30_D20s_qH-1-1.jdf": "386d4146e7f102b25624b287dd1d6ef8f121cdb38474526e2146afd5817f9cb7"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0719_2019/01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190719_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   2.9,
+   3.01
+  ],
+  "digests": {
+   "01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190719_RG30_D20s_qH-1-1.jdf": "386d4146e7f102b25624b287dd1d6ef8f121cdb38474526e2146afd5817f9cb7"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0719_2019/01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190719_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190719_RG30_D20s_qH-1-1.jdf": "898b980b5a0a748ba3fe541c783b4e7c3daa692ea10f8811eca9ed3b6115b35c"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0719_2019/02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190719_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   2.9,
+   3.01
+  ],
+  "digests": {
+   "02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190719_RG30_D20s_qH-1-1.jdf": "898b980b5a0a748ba3fe541c783b4e7c3daa692ea10f8811eca9ed3b6115b35c"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0719_2019/02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190719_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190719_RG30_D20s_qH-1-1.jdf": "d710449e16fd0697678e8863c980e44de3d1f9e89aa041cf03e93f25f1a48349"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0719_2019/03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190719_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   2.9,
+   3.01
+  ],
+  "digests": {
+   "03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190719_RG30_D20s_qH-1-1.jdf": "d710449e16fd0697678e8863c980e44de3d1f9e89aa041cf03e93f25f1a48349"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0719_2019/03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190719_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo1907019_RG30_D20s_qH-1-1.jdf": "a54d1747f80d703eec3803557ccb928a83895268558375a1c10cf7fa818391b4"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0719_2019/04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo1907019_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   3.79,
+   3.9
+  ],
+  "digests": {
+   "04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo1907019_RG30_D20s_qH-1-1.jdf": "a54d1747f80d703eec3803557ccb928a83895268558375a1c10cf7fa818391b4"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0719_2019/04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo1907019_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190724_RG30_D20s_qH-1-1.jdf": "279b9f11e4e7d4d4c1eeacef2f9655dada7aae00bd301323f3c34879c072c206"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0724_2019/01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190724_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   2.9,
+   3.01
+  ],
+  "digests": {
+   "01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190724_RG30_D20s_qH-1-1.jdf": "279b9f11e4e7d4d4c1eeacef2f9655dada7aae00bd301323f3c34879c072c206"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0724_2019/01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190724_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190724_RG30_D20s_qH-1-1.jdf": "6348c06f7dedfa237d5f23a32f1226bb2188b6e6df208061a816dcc890f2e845"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0724_2019/02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190724_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   2.9,
+   3.01
+  ],
+  "digests": {
+   "02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190724_RG30_D20s_qH-1-1.jdf": "6348c06f7dedfa237d5f23a32f1226bb2188b6e6df208061a816dcc890f2e845"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0724_2019/02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190724_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190724_RG30_D20s_qH-1-1.jdf": "be966e1d6c68113f9e0312caca8dd1c5f72eb11081d2028cfbb760de727bf6c4"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0724_2019/03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190724_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   2.9,
+   3.01
+  ],
+  "digests": {
+   "03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190724_RG30_D20s_qH-1-1.jdf": "be966e1d6c68113f9e0312caca8dd1c5f72eb11081d2028cfbb760de727bf6c4"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0724_2019/03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190724_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo190724_RG30_D20s_qH-1-1.jdf": "10b1ed13f67bae54f6fce5e1bc5105225079889e923ac9521d9a45a3008b01f7"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0724_2019/04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo190724_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   3.79,
+   3.9
+  ],
+  "digests": {
+   "04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo190724_RG30_D20s_qH-1-1.jdf": "10b1ed13f67bae54f6fce5e1bc5105225079889e923ac9521d9a45a3008b01f7"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0724_2019/04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo190724_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190810_RG30_D20s_qH-1-1.jdf": "f1d55edb8721423a765a5c33c8ab4067c6b43f3cf83d901441883e17531f0581"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0810_2019/01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190810_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   2.9,
+   3.01
+  ],
+  "digests": {
+   "01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190810_RG30_D20s_qH-1-1.jdf": "f1d55edb8721423a765a5c33c8ab4067c6b43f3cf83d901441883e17531f0581"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0810_2019/01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190810_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190810_RG30_D20s_qH-1-1.jdf": "ae5168a6cfa94f6861052d145b3452b6bf51c26f2cd83efc509eb92a04bde469"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0810_2019/02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190810_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   2.9,
+   3.01
+  ],
+  "digests": {
+   "02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190810_RG30_D20s_qH-1-1.jdf": "ae5168a6cfa94f6861052d145b3452b6bf51c26f2cd83efc509eb92a04bde469"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0810_2019/02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190810_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190810_RG30_D20s_qH-1-1.jdf": "c2a5cb937353644dbcc395f535c3687c03bd8a910296e497fb8e9436218d53f2"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0810_2019/03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190810_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   2.9,
+   3.01
+  ],
+  "digests": {
+   "03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190810_RG30_D20s_qH-1-1.jdf": "c2a5cb937353644dbcc395f535c3687c03bd8a910296e497fb8e9436218d53f2"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0810_2019/03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190810_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo19810_RG30_D20s_qH-1-1.jdf": "45c971ae7b61611b1f9bcc56b9dc782533951895280e3c7308d91b0bdd3504a5"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0810_2019/04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo19810_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   3.79,
+   3.9
+  ],
+  "digests": {
+   "04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo19810_RG30_D20s_qH-1-1.jdf": "45c971ae7b61611b1f9bcc56b9dc782533951895280e3c7308d91b0bdd3504a5"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0810_2019/04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo19810_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190816_RG30_D20s_qH-1-1.jdf": "89a40c2798e3428a84cc4fa6cbc0741c0c35c4b843064152d86d217c959f1bd3"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0816_2019/01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190816_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   2.9,
+   3.01
+  ],
+  "digests": {
+   "01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190816_RG30_D20s_qH-1-1.jdf": "89a40c2798e3428a84cc4fa6cbc0741c0c35c4b843064152d86d217c959f1bd3"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0816_2019/01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190816_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190816_RG30_D20s_qH-1-1.jdf": "6501bddb232ba5613d9e1df666625d8f431de8cd41c3c9540c3cf89d40594f88"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0816_2019/02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190816_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   2.9,
+   3.01
+  ],
+  "digests": {
+   "02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190816_RG30_D20s_qH-1-1.jdf": "6501bddb232ba5613d9e1df666625d8f431de8cd41c3c9540c3cf89d40594f88"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0816_2019/02_MAandDMSO2_T1A_5mm_3913u2894u6000uL_yuzo190816_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190816_RG30_D20s_qH-1-1.jdf": "aff3201aaa36d5b15ec626ef690a6f24a0181fb8f207b88709eabfd35d59dd57"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0816_2019/03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190816_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   2.9,
+   3.01
+  ],
+  "digests": {
+   "03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190816_RG30_D20s_qH-1-1.jdf": "aff3201aaa36d5b15ec626ef690a6f24a0181fb8f207b88709eabfd35d59dd57"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0816_2019/03_MAandDMSO2_T1A_5mm_4280u5692u6000uL_yuzo190816_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo19816_RG30_D20s_qH-1-1.jdf": "705d315256a243ba0d8d377a745797e65f706090c058fda6ead79ac0219c7615"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0816_2019/04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo19816_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   3.79,
+   3.9
+  ],
+  "digests": {
+   "04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo19816_RG30_D20s_qH-1-1.jdf": "705d315256a243ba0d8d377a745797e65f706090c058fda6ead79ac0219c7615"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID02_Figure2/01_5mmNMRtube/Pattern4/0816_2019/04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo19816_RG30_D20s_qH-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   2.9,
+   3.01
+  ],
+  "digests": {
+   "nishizaki_fid02_ma_dmso2_d20s_ns32.jdf": "dd9aeb9cafebaa99755ab0576bd8e1c3ac026970766db58e7a777732cd0bcaf3"
+  },
+  "path": "tests/fixtures/jeol/nishizaki_fid02_ma_dmso2_d20s_ns32.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   6.17,
+   6.28
+  ],
+  "digests": {
+   "nishizaki_fid02_ma_dmso2_d20s_ns32.jdf": "dd9aeb9cafebaa99755ab0576bd8e1c3ac026970766db58e7a777732cd0bcaf3"
+  },
+  "path": "tests/fixtures/jeol/nishizaki_fid02_ma_dmso2_d20s_ns32.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   1.15,
+   1.22
+  ],
+  "digests": {
+   "acqus": "3aed337ada7a9682461dadf1baab4ee5a3c4dbd55bf221062d285c600c1b11f2",
+   "fid": "52fae41b0e075ed323fab8088b87d6a78081f6cb4ed3bdb89cc0171e772b9251"
+  },
+  "path": "tests/fixtures/bruker/zenodo17083860_833-1/10",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": -0.09399185873645344,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   7.64,
+   7.69
+  ],
+  "digests": {
+   "acqus": "3aed337ada7a9682461dadf1baab4ee5a3c4dbd55bf221062d285c600c1b11f2",
+   "fid": "52fae41b0e075ed323fab8088b87d6a78081f6cb4ed3bdb89cc0171e772b9251"
+  },
+  "path": "tests/fixtures/bruker/zenodo17083860_833-1/10",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": -0.09399185873645344,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   2.93,
+   3.04
+  ],
+  "digests": {
+   "13_DMSO2_CD3OD_5mm_1728u2000uL_yuzo190815_qH_D60s_NS16-1-1.jdf": "ecad69e859751b05fda8962d355d6c73b88c16d42a16da001f90c745cf436946"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID05_Figure4/01_13C_decoupled_Aquisition/N1/Delay60sec/13_DMSO2_CD3OD_5mm_1728u2000uL_yuzo190815_qH_D60s_NS16-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   2.9,
+   3.01
+  ],
+  "digests": {
+   "12_DMSO2_DMSO_5mm_1599u1500uL_yuzo190815_qH_D60s_NS16-1-1.jdf": "1fb7503305c6b1cabb0015ff65c2e19c0e836a2eb35e7a8d9e748f58a0d939e3"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID05_Figure4/01_13C_decoupled_Aquisition/N1/Delay60sec/12_DMSO2_DMSO_5mm_1599u1500uL_yuzo190815_qH_D60s_NS16-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   2.93,
+   3.04
+  ],
+  "digests": {
+   "13_DMSO2_CD3OD_5mm_1728u2000uL_yuzo190817_qH_D60s_NS16-1-1.jdf": "0c33268afe6dfc69c666392f39861ceb774cdf7630dc4fc21dc090b440cb07b6"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID06_Table4/01_Isoniazid/13_DMSO2_CD3OD_5mm_1728u2000uL_yuzo190817_qH_D60s_NS16-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   0.17,
+   0.28
+  ],
+  "digests": {
+   "BTMSBandINH_5mm_1064u8463u1500uL_yuzo190817_qH_D60s_NS16-1-1.jdf": "f68457977d9fa9b6103b3a92a86d478ed6c43fc4040badca1e5b6150d93e81fd"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID06_Table4/01_Isoniazid/BTMSBandINH_5mm_1064u8463u1500uL_yuzo190817_qH_D60s_NS16-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   7.67,
+   7.78
+  ],
+  "digests": {
+   "BTMSBandINH_5mm_1064u8463u1500uL_yuzo190817_qH_D60s_NS16-1-1.jdf": "f68457977d9fa9b6103b3a92a86d478ed6c43fc4040badca1e5b6150d93e81fd"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID06_Table4/01_Isoniazid/BTMSBandINH_5mm_1064u8463u1500uL_yuzo190817_qH_D60s_NS16-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ },
+ {
+  "bounds": [
+   8.6,
+   8.71
+  ],
+  "digests": {
+   "BTMSBandINH_5mm_1064u8463u1500uL_yuzo190817_qH_D60s_NS16-1-1.jdf": "f68457977d9fa9b6103b3a92a86d478ed6c43fc4040badca1e5b6150d93e81fd"
+  },
+  "path": ".cache/veri/nishizaki_QFY6L9/x_334_Dataverse_20200705/334_Dataverse_20200705/FID06_Table4/01_Isoniazid/BTMSBandINH_5mm_1064u8463u1500uL_yuzo190817_qH_D60s_NS16-1-1.jdf",
+  "settings": {
+   "autophase_method": "lineshape",
+   "baseline_bridge": true,
+   "baseline_windows_ppm": [],
+   "lb_hz": 0.0,
+   "p0_deg": 0.0,
+   "p1_deg": 0.0,
+   "phase_lb_hz": 1.0,
+   "pivot_ppm": null,
+   "reference_shift_ppm": 0.0,
+   "reference_source": null,
+   "smooth_baseline": true,
+   "zero_fill_factor": 2
+  }
+ }
+]

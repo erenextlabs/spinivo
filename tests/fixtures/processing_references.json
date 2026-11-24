@@ -1,0 +1,129 @@
+{
+  "processing": {
+    "autophase_method": "lineshape",
+    "lb_hz": 0.0,
+    "phase_lb_hz": 1.0,
+    "zero_fill_factor": 2,
+    "smooth_baseline": true,
+    "baseline_bridge": true,
+    "lock_spike_anchors": true
+  },
+  "rubric_processing": {
+    "autophase_method": "lineshape",
+    "lb_hz": 1,
+    "zero_fill_factor": 2,
+    "smooth_baseline": true
+  },
+  "noise_windows_ppm": {"jeol": [1.55, 1.85], "bruker": [-2.00, -1.50]},
+  "relative_tolerance": 0.01,
+  "fixtures": {
+    "jeol": {
+      "path": "jeol/nishizaki_fid02_ma_dmso2_d20s_ns32.jdf",
+      "reference_source": "Matching processed JDF x_offset, 5 ppm (same as raw)",
+      "regions_ppm": {"DMSO2": [2.90, 3.01], "MA": [6.17, 6.28]},
+      "numerator": "DMSO2",
+      "denominator": "MA",
+      "observed_ratio": 1.3474035864337401,
+      "references": {
+        "vendor": {
+          "source": "doi:10.7910/DVN/QFY6L9, FID02_Figure2/01_5mmNMRtube/Pattern1/0619_2019/01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190619_RG30_No90pw_D20s_NS32_qH-1-2.jdf",
+          "areas": [0.0000256130, 0.0000189742],
+          "area_unit": "vendor amplitude*ppm",
+          "ratio": 1.349887,
+          "relative_residual": -0.001839719595980936
+        },
+        "workbook": {
+          "source": "doi:10.7910/DVN/QFY6L9, FID02_CalculationSpreadsheet.xlsx, 5-mm NMR tubes, H5/G5",
+          "areas": [0.35815325, 0.26497185],
+          "area_unit": "abn (workbook label)",
+          "bounds_ppm": null,
+          "ratio": 1.351665,
+          "relative_residual": -0.0031527142940445695
+        }
+      }
+    },
+    "bruker": {
+      "path": "bruker/zenodo17083860_833-1/10",
+      "processing": {"lb_hz": 1, "phase_lb_hz": null},
+      "lb_source": "pdata/1/auditp.txt, TopSpin ef LB = 1",
+      "reference_source": "pdata/1/procs SF and acqus SFO1, as in tests/test_processing.py",
+      "regions_ppm": {"1.15-1.22 ppm": [1.15, 1.22], "7.64-7.69 ppm": [7.64, 7.69]},
+      "numerator": "1.15-1.22 ppm",
+      "denominator": "7.64-7.69 ppm",
+      "observed_ratio": 38.86968342113312,
+      "baseline_sensitivity": {
+        "assessment": "baseline sensitive",
+        "half_block_ratio": 39.578686903045806,
+        "relative_ratio_change": 0.018240526279337005
+      },
+      "references": {
+        "vendor": {
+          "source": "doi:10.5281/zenodo.17083860, qnmr_raw_data/raw data/1.batch/833-1-qnmr/10/pdata/1/1r, ppm grid from procs",
+          "ratio": 38.81644,
+          "relative_residual": 0.0013716719290361988
+        }
+      }
+    }
+  },
+  "pilot_source": "doi:10.7910/DVN/QFY6L9 and docs/pilot-pairs.md",
+  "pilots": [
+    {
+      "name": "FID02",
+      "source": "FID02_CalculationSpreadsheet.xlsx, 5-mm NMR tubes, Pattern 4",
+      "runs": [
+        {
+          "path": "FID02_Figure2/01_5mmNMRtube/Pattern4/0724_2019/04_MAandCAF_T1A_5mm_6435u15130u9000uL_yuzo190724_RG30_D20s_qH-1-1.jdf",
+          "regions": {
+            "G149": {"signal": "MA", "bounds_ppm": [6.17, 6.28], "area": 0.26387499},
+            "I149": {"signal": "CAF_H7", "bounds_ppm": [3.79, 3.90], "area": 0.55648986}
+          }
+        },
+        {
+          "path": "FID02_Figure2/01_5mmNMRtube/Pattern4/0724_2019/01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190724_RG30_D20s_qH-1-1.jdf",
+          "regions": {
+            "G146": {"signal": "MA", "bounds_ppm": [6.17, 6.28], "area": 0.26193853},
+            "H146": {"signal": "DMSO2", "bounds_ppm": [2.90, 3.01], "area": 0.35070252}
+          }
+        }
+      ],
+      "ratios": [["G149", "I149"], ["G146", "H146"], ["I149", "H146"]]
+    },
+    {
+      "name": "FID05",
+      "source": "FID05_CalculationSpreadsheet.xlsx, Sheet1, decoupled N1",
+      "runs": [
+        {
+          "path": "FID05_Figure4/01_13C_decoupled_Aquisition/N1/Delay60sec/13_DMSO2_CD3OD_5mm_1728u2000uL_yuzo190815_qH_D60s_NS16-1-1.jdf",
+          "regions": {"G7": {"signal": "DMSO2 (CD3OD)", "bounds_ppm": [2.93, 3.04], "area": 1.19514102}}
+        },
+        {
+          "path": "FID05_Figure4/01_13C_decoupled_Aquisition/N1/Delay60sec/12_DMSO2_DMSO_5mm_1599u1500uL_yuzo190815_qH_D60s_NS16-1-1.jdf",
+          "regions": {"G6": {"signal": "DMSO2 (DMSO-d6)", "bounds_ppm": [2.90, 3.01], "area": 1.48424385}}
+        }
+      ],
+      "ratios": [["G7", "G6"]],
+      "evidence_gap": "solvent transfer and pulse-width correction unvalidated"
+    },
+    {
+      "name": "FID06",
+      "source": "FID06_CalculationSpreadsheet.xlsx, Sheet1, isoniazid rows 4-5",
+      "runs": [
+        {
+          "path": "FID06_Table4/01_Isoniazid/13_DMSO2_CD3OD_5mm_1728u2000uL_yuzo190817_qH_D60s_NS16-1-1.jdf",
+          "regions": {"F4": {"signal": "DMSO2", "bounds_ppm": [2.93, 3.04], "area": 1.19608545}}
+        },
+        {
+          "path": "FID06_Table4/01_Isoniazid/BTMSBandINH_5mm_1064u8463u1500uL_yuzo190817_qH_D60s_NS16-1-1.jdf",
+          "regions": {
+            "G5": {"signal": "BTMSB", "bounds_ppm": [0.17, 0.28], "area": 1.23461854},
+            "H5": {"signal": "INH (7.72 ppm)", "bounds_ppm": [7.67, 7.78], "area": 1.79906664,
+                   "evidence_gap": "H5/I5 assigned in increasing ppm order; workbook order unverified"},
+            "I5": {"signal": "INH (8.65 ppm)", "bounds_ppm": [8.60, 8.71], "area": 1.80570143,
+                   "evidence_gap": "H5/I5 assigned in increasing ppm order; workbook order unverified"}
+          }
+        }
+      ],
+      "ratios": [["G5", "F4"], ["H5", "F4"], ["I5", "F4"]]
+    }
+  ]
+}

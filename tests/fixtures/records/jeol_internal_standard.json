@@ -1,0 +1,14 @@
+{
+  "schema": "spinivo.assay/1", "mode": "internal_standard", "assay_id": "FID02-MA-DMSO2",
+  "notes": "Record for the committed JEOL fixture (CC0-1.0). Masses follow the file name; T1, calibration source, uncertainties and k are illustrative (GPL-3.0-or-later). It has no component evidence, so it cannot pass.",
+  "run": {"run_id": "FID02-Pattern1-0619", "file": "../jeol/nishizaki_fid02_ma_dmso2_d20s_ns32.jdf", "preparation_id": "FID02-Pattern1-tube", "noise_bounds_ppm": [1.55, 1.85],
+          "reference": {"shift_ppm": 0, "source": "JDF x_offset 5 ppm"}, "recovery": {"calibrated_90_us": 7.272, "calibration_source": "Illustrative: JDF x_90_width", "extra_recovery_s": 0}},
+  "signals": {"analyte": [{"name": "MA", "bounds_ppm": [6.17, 6.28], "evidence": null, "t1_s": 2.0, "t1_source": "Illustrative T1"}],
+              "standard": [{"name": "DMSO2", "bounds_ppm": [2.90, 3.01], "evidence": null, "t1_s": 2.0, "t1_source": "Illustrative T1"}]},
+  "N_a": 2, "N_s": 6, "R_relative_u": 0.003, "R_u_source": "Illustrative integral repeatability", "k": {"value": 2, "source": "Illustrative coverage factor"},
+  "quantities": {"M_a": {"value": 116.07, "standard_u": 0.003, "unit": "g/mol", "source": "Illustrative"}, "M_s": {"value": 94.13, "standard_u": 0.003, "unit": "g/mol", "source": "Illustrative"},
+                 "m_a": {"value": 4.226, "standard_u": 0.004, "unit": "mg", "source": "File name 4226u, illustrative u", "source_ids": ["balance:fixture-FID02"]},
+                 "m_s": {"value": 1.534, "standard_u": 0.004, "unit": "mg", "source": "File name 1534u, illustrative u", "source_ids": ["balance:fixture-FID02"]},
+                 "w_s": {"value": 0.999, "standard_u": 0.0005, "unit": "fraction", "source": "Illustrative standard purity"}},
+  "correlations": [{"inputs": ["m_s", "m_a"], "r": 0.3, "source": "Illustrative weighing correlation"}]
+}

@@ -1,0 +1,61 @@
+[
+  {
+    "id": "nishizaki_QFY6L9",
+    "doi": "10.7910/DVN/QFY6L9",
+    "repository": "Harvard Dataverse",
+    "version": "1.0",
+    "licence": "CC0-1.0",
+    "creators": ["Guido Pauli"],
+    "paper": {
+      "citation": "Nishizaki et al., Anal. Chem.",
+      "doi": "10.1021/acs.analchem.0c02967"
+    },
+    "archives": [
+      {
+        "local_name": "334_Dataverse_20200705.zip",
+        "deposit_name": "334_Dataverse_20200705.zip",
+        "md5": "8522f6a32df2e8f8dbe1b6c22ff6d7f6",
+        "size_bytes": 1129369545
+      }
+    ]
+  },
+  {
+    "id": "zenodo_17083860",
+    "doi": "10.5281/zenodo.17083860",
+    "repository": "Zenodo",
+    "licence": "CC-BY-4.0",
+    "creators": ["Jingyi Hu"],
+    "title": "qNMRrawdata_EnhancingPolyketideProduction",
+    "archives": [
+      {
+        "local_name": "qnmr_raw_data.zip",
+        "deposit_name": "qNMR raw data.zip",
+        "md5": "d372d1a232628477ec4d85a655417f20",
+        "size_bytes": 4798380
+      }
+    ]
+  },
+  {
+    "id": "zenodo_7221753",
+    "doi": "10.5281/zenodo.7221753",
+    "repository": "Zenodo",
+    "version": "1.0.0",
+    "licence": "CC-BY-4.0",
+    "creators": ["Santana", "Diz", "França", "Junker"],
+    "title": "Quantitative NMR interpretation without reference",
+    "archives": [
+      {
+        "local_name": "nmr_data.zip",
+        "deposit_name": "NMR Data.zip",
+        "md5": "2eceea1029bb1c43aa15292cc618ce72",
+        "size_bytes": 203687713
+      },
+      {
+        "local_name": "numbers_spreadsheet.zip",
+        "deposit_name": "Numbers Spreadsheet.zip",
+        "md5": "fdefcc4a1a9c5d23c94b202669a5b792",
+        "size_bytes": 3910720
+      }
+    ]
+  }
+]
