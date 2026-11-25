@@ -4,6 +4,8 @@ Decisions after the plan (docs/plan.md, section 9). Newest first.
 
 ## 25 Nov 2026
 
+22. **User guide update.** Publish the step-by-step user guide (`docs/user-guide.md`), its README link and its output test as one follow-up commit on the public `main` under decision 18, between versions. The package version stays 1.1.0 because the code is unchanged. The same checks as decision 21 apply. Owner poll, 25 Nov 2026.
+
 21. **Version 1.1.0 release.** Publish the v1.1 work as version 1.1.0, a regular release without the preview label, as one follow-up commit on the public `main` under decision 18. Publish only after the candidate passes the test suite, the export and licence checks and two privacy scans. Decision 20 limits stay in force, including no general accuracy claim. Package index publication remains a separate decision. Owner poll, 25 Nov 2026.
 
 20. **Self-provable release scope.** No new third-party data, measurements or external sign-off are required to release. Spinivo claims that it reads supported files, applies its documented checks, reproduces specified purity results and GUM propagation for supported inputs, and withholds checked purity when required evidence is missing. A checked pass means the documented checks passed; it does not establish purity accuracy, budget completeness or coverage on real samples. Spinivo makes no general accuracy claim for purity, and README and reports must not imply independently validated accuracy. Calculation-only values from entered areas keep decision 1.

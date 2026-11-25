@@ -20,6 +20,8 @@ spinivo compare /path/to/comparison.json
 
 You can also use `python -m spinivo` in place of `spinivo`.
 
+Follow the [step-by-step user guide](docs/user-guide.md) to inspect a fixture and read an assay report.
+
 ## Limitations
 
 Spinivo 1.1.0 supports conventional 1D proton qNMR. A checked pass means the documented checks passed for the supplied assay. Spinivo reproduces specified calculations and GUM propagation for supported inputs. Spinivo makes no general purity accuracy claim. Budget completeness and uncertainty coverage on real samples remain unverified. The fraction of eligible preparations that yield checked purity is also unmeasured for both methods.
