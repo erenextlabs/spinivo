@@ -330,7 +330,9 @@ def _snr_input_reason(spectrum, raw, noise_bounds):
         value = getattr(raw, field)
         if value is None or not isclose(value, getattr(spectrum, field), rel_tol=1e-12):
             return f"Raw {field} does not match the processed spectrum"
-    if raw.source and spectrum.source and raw.source != spectrum.source:
+    if spectrum.source and not raw.source:
+        return "Raw source is missing for the processed spectrum"
+    if spectrum.source and raw.source != spectrum.source:
         return "Raw source does not match the processed spectrum"
     return None
 

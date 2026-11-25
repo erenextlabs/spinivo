@@ -21,12 +21,11 @@ class _ConversionTable(jeol.ConversionTable):
     prefix = {code & 15: name for code, name in jeol.ConversionTable.prefix.items() if name != "None"}
 
 
-def _read_description(buffer, path):
-    stream, header = jeol.read_header(jeol.IOBuffer(buffer, _ConversionTable))
-    start, length = header["param_start"], header["param_length"]
+def _read_parameters(stream, start, length, endian, path):
+    buffer = stream.buffer
     if start < stream.position or length < 16 or start + length > len(buffer):
         raise UnsupportedInput("truncated", path, "JDF parameter section is out of bounds")
-    order = "<" if header["endian"] == "little_endian" else ">"
+    order = "<" if endian == "little_endian" else ">"
     size, _, count, total = struct.unpack_from(order + "4I", buffer, start)
     if size != 64 or not count * size <= total <= length - 16:
         raise UnsupportedInput("truncated", path, "JDF parameter records are out of bounds")
@@ -47,8 +46,14 @@ def _read_description(buffer, path):
                 stages[name.decode()] = tuple(map(int, tokens))
             except ValueError as error:
                 raise UnsupportedInput("truncated", path, f"invalid JDF stages for {name.decode()}") from error
-    _, params = jeol.read_parameters(stream, start, header["endian"])
+    _, params = jeol.read_parameters(stream, start, endian)
     params.update(stages)
+    return params
+
+
+def _read_description(buffer, path):
+    stream, header = jeol.read_header(jeol.IOBuffer(buffer, _ConversionTable))
+    params = _read_parameters(stream, header["param_start"], header["param_length"], header["endian"], path)
     return {"header": header, "parameters": params}
 
 

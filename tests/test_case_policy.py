@@ -165,6 +165,23 @@ class CasePolicyTests(unittest.TestCase):
                     "case policy: INVALID (Manifest pilot pairs differ from the pinned pilot pairs)",
                 ])
 
+    def test_policy_cli_refuses_swapped_pilot_pairs(self):
+        pairs = {pair["id"]: pair for pair in self.data["pilot_pairs"]}
+        left, right = pairs["pilot-FID02"], pairs["pilot-FID05"]
+        for role in ("sample", "ec"):
+            left[role], right[role] = right[role], left[role]
+        for case in self.data["cases"]:
+            if case["id"] in (left["id"], right["id"]):
+                pair = pairs[case["id"]]
+                case["run_ids"] = [pair[role]["run_id"] for role in ("sample", "ec")]
+        self.write_manifest(self.data)
+        command = [sys.executable, str(PROJECT / "tools/check_case_policy.py"), "--manifest", str(self.manifest)]
+        failed = subprocess.run(command, capture_output=True, text=True)
+        self.assertEqual(failed.returncode, 1)
+        self.assertEqual(failed.stderr.splitlines(), [
+            "case policy: INVALID (Manifest pilot pairs differ from the pinned pilot pairs)",
+        ])
+
     def test_compare_reports_all_pilots_in_order(self):
         with (patch.object(sys, "argv", ["compare_references.py", str(self.manifest.parent)]),
               patch.object(compare_references, "report_pilot") as report):

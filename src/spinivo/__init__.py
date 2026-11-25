@@ -1,6 +1,6 @@
 """Read raw qNMR data and assess same-tube or external-calibration purity."""
 
-__version__ = "1.0.0b1"
+__version__ = "1.1.0"
 
 from .accuracy import evaluate_release_gates
 from .assay_record import AssayRecord, RecordError, assess_record, load_record, parse_record

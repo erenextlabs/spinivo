@@ -122,6 +122,7 @@ class ExternalCalibrationAssay:
     _linked_prerequisites: tuple[Prerequisite, ...] = field(default=(), repr=False, compare=False)
     # Run roles each generated prerequisite depends on, in prerequisite order.
     _linked_check_runs: tuple[tuple[str, ...], ...] = field(default=(), repr=False, compare=False)
+    _linked_region_units: tuple[tuple[str, str, str | None], ...] = field(default=(), repr=False, compare=False)
     _header_values: tuple[tuple[str, str, object], ...] = field(default=(), repr=False, compare=False)
     _linked_runs: tuple[tuple[str, ExternalRun, ExternalRun], ...] = field(default=(), repr=False, compare=False)
 
@@ -234,7 +235,7 @@ def _link_external(assay, evidence, *, remeasure=False, missing_runs=None):
                 for role, run in runs.items()}
     missing_runs = missing_runs or {}
     scoped = [((role,), check) for role, check in missing_runs.items()]
-    region_units, unit_roles, headers = {}, [], []
+    region_units, unit_roles, headers = [], [], []
     for role, run_evidence in evidence.items():
         if run_evidence is not None:
             raw, regions, acquisition = run_evidence
@@ -246,15 +247,15 @@ def _link_external(assay, evidence, *, remeasure=False, missing_runs=None):
             scoped.extend(((role,), check) for check in checks)
             if units:
                 unit_roles.append(role)
-                region_units.update(units)
+                region_units.extend((role, name, unit) for name, unit in units.items())
     checks = []
-    _link_units(region_units, checks)
+    _link_units({name: unit for _, name, unit in region_units}, checks)
     scoped.extend((tuple(unit_roles), check) for check in checks)
     linked_runs = tuple((role, entered_runs[role], run) for role, run in runs.items() if role not in missing_runs)
     # Keep absent records absent on direct links so a retry sees the same missing input.
     runs.update(dict.fromkeys(missing_runs))
     return _replace_external_prerequisites(assay, scoped, _header_values=tuple(headers),
-                                           _linked_runs=linked_runs, **runs)
+                                           _linked_runs=linked_runs, _linked_region_units=tuple(region_units), **runs)
 
 
 def _link_run(role, run, raw, regions, expected, acquisition, prerequisites, region_units, header):
@@ -541,10 +542,26 @@ def _fill_missing_runs(assay):
     if not runs:
         return assay, {}
     checks = {role: Prerequisite(f"{role} run", "cannot be assessed", "Missing run record") for role in runs}
-    scoped = ((roles, check) for roles, check in zip(assay._linked_check_runs, assay._linked_prerequisites)
-              if runs.keys().isdisjoint(roles))
+    region_units = tuple(row for row in assay._linked_region_units if row[0] not in runs)
+    generated = {id(check): roles for roles, check in zip(assay._linked_check_runs, assay._linked_prerequisites)}
+    scoped = []
+    for check in assay.prerequisites:
+        roles = generated.get(id(check))
+        if roles is None:
+            continue
+        if not runs.keys().isdisjoint(roles):
+            if check.name != "linked area units":
+                continue
+            unit_checks = []
+            _link_units({name: unit for _, name, unit in region_units}, unit_checks)
+            if not unit_checks:
+                continue
+            check, = unit_checks
+            roles = tuple(role for role in roles if role not in runs)
+        scoped.append((roles, check))
     return _replace_external_prerequisites(
-        assay, scoped, _header_values=tuple(row for row in assay._header_values if row[0] not in runs),
+        assay, scoped, _linked_region_units=region_units,
+        _header_values=tuple(row for row in assay._header_values if row[0] not in runs),
         _linked_runs=tuple(row for row in assay._linked_runs if row[0] not in runs), **runs,
     ), checks
 

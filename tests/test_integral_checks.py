@@ -263,6 +263,13 @@ class RegionStabilityTests(unittest.TestCase):
         self.assertLess(result.value, 150)
         self.assertEqual((result.status, result.details.status, result.reason), ("flag", "flag", result.details.reason))
 
+    def test_snr_requires_raw_source_when_spectrum_source_is_known(self):
+        raw = replace(self.raw, source=None)
+        result = self.check(raw=raw).snr
+        self.assert_outcome(result, "cannot be assessed", "Raw source is missing")
+        self.assertIsNone(result.value)
+        self.assertEqual(self.check(replace(self.spectrum, source=None), raw=raw).snr.status, "pass")
+
     def test_snr_requires_raw_and_qualified_noise_window(self):
         foreign = replace(self.raw, complex_points=2 * self.raw.complex_points)
         for options, reason in ((dict(raw=None), "raw acquisition"), (dict(raw=foreign), "complex_points"),

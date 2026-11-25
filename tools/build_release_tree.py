@@ -74,10 +74,44 @@ def scan_identities(root, ref, stage, cleared):
     return found
 
 
-def commit_release(output, stage, cleared, message, object_format):
+def check_parent_repo(root, parent_repo, parent_commit, object_format):
+    oid_length = {"sha1": 40, "sha256": 64}[object_format]
+    if len(parent_commit) != oid_length or not re.fullmatch(r"[0-9a-fA-F]+", parent_commit):
+        raise ValueError("--parent-commit must be a full hex commit OID")
+    if not parent_repo.is_dir():
+        raise ValueError("--parent-repo must be a local repository directory")
+    source_dir, parent_dir = (
+        Path(os.fsdecode(git(repo, "rev-parse", "--path-format=absolute", "--git-common-dir")
+                         .removesuffix(b"\n"))).resolve()
+        for repo in (root, parent_repo)
+    )
+    if source_dir == parent_dir:
+        raise ValueError("--parent-repo must be separate from ROOT")
+    if git(parent_repo, "rev-parse", "--show-object-format").strip() != object_format.encode():
+        raise ValueError("parent and source object formats must match")
+    if git(parent_repo, "rev-parse", "--is-shallow-repository").strip() == b"true":
+        raise ValueError("--parent-repo needs complete history")
+
+
+def fetch_parent(output, parent_repo, parent_commit):
+    main_oid = git(parent_repo, "show-ref", "--verify", "--hash", "refs/heads/main").strip()
+    if main_oid != parent_commit.encode():
+        raise ValueError("parent main does not match --parent-commit")
+    git(output, "fetch", "--no-tags", "--no-recurse-submodules", "--no-auto-maintenance", "--",
+        parent_repo, "refs/heads/main", GIT_ALLOW_PROTOCOL="file")
+    actual = git(output, "rev-parse", "--verify", "FETCH_HEAD").strip()
+    if actual != parent_commit.encode() or git(output, "cat-file", "-t", actual).strip() != b"commit":
+        raise ValueError("parent main does not match --parent-commit")
+    return len(verify_history(output, parent_commit))
+
+
+def commit_release(output, stage, cleared, message, object_format, parent_repo=None, parent_commit=None):
     output.mkdir()
     try:
         git(output, "init", "--template=", "--initial-branch=main", f"--object-format={object_format}")
+        parent_count = 0
+        if parent_repo is not None:
+            parent_count = fetch_parent(output, parent_repo, parent_commit)
         index = []
         for name, (mode, expected) in cleared.items():
             path = output / name
@@ -90,25 +124,50 @@ def commit_release(output, stage, cleared, message, object_format):
             index.append(mode + b" " + oid + b"\t" + os.fsencode(name) + b"\0")
         git(output, "update-index", "-z", "--index-info", input=b"".join(index))
         date = f"{int(datetime.now(timezone.utc).timestamp())} +0000"
+        committer = dict(GIT_COMMITTER_NAME=NAME, GIT_COMMITTER_EMAIL=EMAIL, GIT_COMMITTER_DATE=date)
+        if parent_commit is not None:
+            if git(output, "write-tree") == git(output, "rev-parse", f"{parent_commit}^{{tree}}"):
+                raise ValueError("release tree equals the parent tree")
+            git(output, "update-ref", "refs/heads/main", parent_commit, **committer)
         git(output, "commit", "--allow-empty", "--no-gpg-sign", "--cleanup=verbatim", "-m", message,
-            GIT_AUTHOR_NAME=NAME, GIT_AUTHOR_EMAIL=EMAIL, GIT_AUTHOR_DATE=date,
-            GIT_COMMITTER_NAME=NAME, GIT_COMMITTER_EMAIL=EMAIL, GIT_COMMITTER_DATE=date)
-        return verify_release(output, cleared)
+            GIT_AUTHOR_NAME=NAME, GIT_AUTHOR_EMAIL=EMAIL, GIT_AUTHOR_DATE=date, **committer)
+        return verify_release(output, cleared, parent_commit, parent_count)
     except BaseException:
         shutil.rmtree(output)
         raise
 
 
-def verify_release(output, cleared):
-    if git(output, "rev-list", "--count", "--all").strip() != b"1":
-        raise ValueError("release must have exactly one commit")
-    headers, _, message = git(output, "cat-file", "commit", "HEAD").partition(b"\n\n")
+def verify_commit(output, commit):
+    headers, _, message = git(output, "cat-file", "commit", commit).partition(b"\n\n")
     identity = re.escape(f"{NAME} <{EMAIL}>".encode())
     for role in (b"author", b"committer"):
-        if not re.search(rb"^" + role + rb" " + identity + rb" [0-9]+ \+0000$", headers, re.MULTILINE):
+        fields = re.findall(rb"^" + role + rb" (.*)$", headers, re.MULTILINE)
+        if len(fields) != 1 or not re.fullmatch(identity + rb" [0-9]+ \+0000", fields[0]):
             raise ValueError(f"release {role.decode()} identity or UTC offset differs")
-    if git(output, "interpret-trailers", "--parse", input=message).strip():
+    if git(output, "interpret-trailers", "--parse", "--no-divider", input=message).strip():
         raise ValueError("release commit message contains trailers")
+
+
+def verify_history(output, ref):
+    history = [line.split() for line in git(output, "rev-list", "--parents", ref, "--").splitlines()]
+    for commit, *parents in history:
+        if len(parents) > 1:
+            raise ValueError("release history must be linear")
+        verify_commit(output, commit)
+    return history
+
+
+def verify_release(output, cleared, parent_commit=None, parent_count=0):
+    if int(git(output, "rev-list", "--count", "--all")) != parent_count + 1:
+        if parent_commit is None:
+            raise ValueError("release must have exactly one commit")
+        raise ValueError("release must have exactly one more commit than the parent history")
+    history = verify_history(output, "HEAD")
+    expected_parents = [] if parent_commit is None else [parent_commit.encode()]
+    if history[0][1:] != expected_parents:
+        raise ValueError("release HEAD has an unexpected parent")
+    if git(output, "symbolic-ref", "HEAD").strip() != b"refs/heads/main":
+        raise ValueError("release HEAD must point to main")
     # Same object format as the source, so the IDs verify the exact blob bytes.
     if tree_files(output, "HEAD") != cleared:
         raise ValueError("release tree differs from the cleared paths, modes or blobs")
@@ -116,7 +175,13 @@ def verify_release(output, cleared):
     return commit, tree
 
 
-def build(root, ref, output, allowlist, message):
+def build(root, ref, output, allowlist, message, parent_repo=None, parent_commit=None):
+    if (parent_repo is None) != (parent_commit is None):
+        raise ValueError("--parent-repo and --parent-commit must be used together")
+    if message is None:
+        if parent_repo is not None:
+            raise ValueError("--message is required for a follow-up release")
+        message = MESSAGE
     if os.path.lexists(output):
         raise ValueError("OUTPUT already exists")
     output = output.parent.resolve() / output.name
@@ -128,6 +193,10 @@ def build(root, ref, output, allowlist, message):
         raise ValueError("ROOT needs complete history for the identity scan")
     ref = git(root, "rev-parse", "--verify", "--end-of-options", f"{ref}^{{commit}}").decode().strip()
     object_format = git(root, "rev-parse", "--show-object-format").decode().strip()
+    if parent_repo is not None:
+        parent_repo = parent_repo.resolve()
+        check_parent_repo(root, parent_repo, parent_commit, object_format)
+        parent_commit = parent_commit.lower()
     files = tree_files(root, ref)
     with tempfile.TemporaryDirectory() as temp:
         stage = Path(temp)
@@ -155,7 +224,7 @@ def build(root, ref, output, allowlist, message):
             return 1
         if scan_identities(root, ref, stage, cleared):
             return 1
-        commit, tree = commit_release(output, stage, cleared, message, object_format)
+        commit, tree = commit_release(output, stage, cleared, message, object_format, parent_repo, parent_commit)
     print(f"cleared {len(cleared)}, excluded {len(files) - len(cleared)}, commit {commit}, tree {tree}")
     return 0
 
@@ -166,10 +235,13 @@ def main(argv=None):
     parser.add_argument("--root", type=Path, default=export_check.PROJECT)
     parser.add_argument("--ref", default="HEAD")
     parser.add_argument("--allowlist", type=Path, help="paths inside ROOT use REF (default: data/redistribution.json)")
-    parser.add_argument("--message", default=MESSAGE)
+    parser.add_argument("--message")
+    parser.add_argument("--parent-repo", type=Path, help="local repository with the previous public main")
+    parser.add_argument("--parent-commit", help="full OID of the previous public main commit")
     args = parser.parse_args(argv)
     try:
-        return build(args.root.resolve(), args.ref, args.output, args.allowlist, args.message)
+        return build(args.root.resolve(), args.ref, args.output, args.allowlist, args.message,
+                     args.parent_repo, args.parent_commit)
     except (OSError, ValueError, KeyError, RuntimeError) as exc:
         print(exc, file=sys.stderr)
         return 1

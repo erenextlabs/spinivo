@@ -5,7 +5,10 @@ import csv
 import hashlib
 import json
 import re
+import struct
+import sys
 import tempfile
+from os import fstat
 from pathlib import Path, PurePosixPath
 
 PROJECT = Path(__file__).resolve().parents[1]
@@ -46,9 +49,13 @@ EXPOSURES = [
 ]
 
 
+def _archive_key(deposit, archive):
+    return f"{deposit}/x_{PurePosixPath(archive).stem}"
+
+
 def _local_key(key):
     deposit, archive, path = key
-    return f"{deposit}/x_{PurePosixPath(archive).stem}/{path}"
+    return f"{_archive_key(deposit, archive)}/{path}"
 
 
 def _nishizaki_key(path):
@@ -64,10 +71,37 @@ CONTROLS_09 = {
 }
 
 
+def _validate_key(key):
+    deposit, archive, path = key
+    if (not all(isinstance(part, str) for part in key) or "/" in deposit or "/" in archive
+            or any(part in {"", ".", ".."} or "\\" in part or ":" in part or "\x00" in part
+                   for part in (deposit, archive, *path.split("/")))):
+        raise ValueError(f"Invalid inventory key {key!r}")
+
+
+def _metadata_path(data_root, key, is_jdf):
+    deposit, archive, path = key
+    outside_archive = f"Metadata path leaves archive folder for inventory key {key!r}"
+    try:
+        root = data_root.resolve()
+        folder = (root / _archive_key(deposit, archive)).resolve()
+        if folder == root or not folder.is_relative_to(root):
+            raise ValueError(outside_archive)
+        metadata = folder / path
+        if not is_jdf:
+            metadata = metadata.with_name("acqus")
+        metadata = metadata.resolve()
+    except (OSError, RuntimeError) as error:
+        raise ValueError(f"Cannot resolve metadata path for inventory key {key!r}") from error
+    if metadata == folder or not metadata.is_relative_to(folder):
+        raise ValueError(outside_archive)
+    return metadata
+
+
 def _acquisition_id(path, is_jdf):
     try:
         if not is_jdf:
-            with path.with_name("acqus").open("rb") as stream:
+            with path.open("rb") as stream:
                 for line in stream:
                     match = re.match(rb"##\$DATE\s*=\s*([+-]?\d+)\s*(?:\$\$.*)?$", line)
                     if match:
@@ -75,19 +109,23 @@ def _acquisition_id(path, is_jdf):
             return None
         with path.open("rb") as stream:
             from nmrglue.fileio import jeol
+            from spinivo.readers.jeol import _ConversionTable, _read_parameters
 
-            # The fixed JDF header is 1360 bytes. Read only it and the parameter block.
-            buffer, header = jeol.read_header(jeol.IOBuffer(stream.read(1360), jeol.ConversionTable))
+            # Read the fixed JDF header and the parameter block only.
+            buffer, header = jeol.read_header(jeol.IOBuffer(stream.read(1360), _ConversionTable))
             start, length = header["param_start"], header["param_length"]
-            if header["file_identifier"] != "JEOL.NMR" or start < buffer.position or start + length > header["data_start"]:
+            if (header["file_identifier"] != "JEOL.NMR" or start < buffer.position
+                    or start + length > min(header["data_start"], fstat(stream.fileno()).st_size)):
                 raise ValueError(f"Invalid JDF parameter block in {path}")
             stream.seek(start)
-            params = jeol.IOBuffer(stream.read(length), jeol.ConversionTable)
-            _, values = jeol.read_parameters(params, 0, header["endian"])
+            params = jeol.IOBuffer(stream.read(length), _ConversionTable)
+            values = _read_parameters(params, 0, length, header["endian"], path)
             if {"actual_start_time", "end_time"} <= values.keys():
                 return {"start": values["actual_start_time"], "end": values["end_time"], "title": header["title"]}
     except FileNotFoundError:
         pass
+    except (struct.error, UnicodeError, KeyError, TypeError, OverflowError) as error:
+        raise ValueError(f"Invalid JDF parameter block in {path}") from error
     return None
 
 
@@ -123,6 +161,8 @@ def _links(preparations):
 
 def _runs(rows, data_root):
     runs, preparations, by_hash = {}, {}, {}
+    for key in rows:
+        _validate_key(key)
     for key, row in sorted(rows.items()):
         deposit, archive, path = key
         is_jdf = row["kind"] == "jdf"
@@ -147,7 +187,7 @@ def _runs(rows, data_root):
         runs[key] = {
             "id": run_id, "deposit": deposit, "raw_key": list(key),
             "processed_key": list(processed_key) if processed_key in rows else None,
-            "sha256": digest, "acquisition_id": _acquisition_id(data_root / _local_key(key), is_jdf),
+            "sha256": digest, "acquisition_id": _acquisition_id(_metadata_path(data_root, key, is_jdf), is_jdf),
             "alias_of": by_hash.get(digest, {}).get("id"),
             "preparation_id": prep["id"] if prep else None, "fixture_aliases": [],
         }
@@ -278,4 +318,5 @@ def main():
 
 
 if __name__ == "__main__":
+    sys.path.insert(0, str(PROJECT / "src"))
     main()

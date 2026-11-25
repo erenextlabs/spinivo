@@ -221,3 +221,123 @@ class BuildReleaseTreeTests(unittest.TestCase):
     def test_message_trailers_remove_output(self):
         result = self.run_builder("--message", "Release\n\nSigned-off-by: Synthetic <signer@example.invalid>")
         self.assert_failed(result, b"release commit message contains trailers")
+
+    def test_message_trailer_after_divider_removes_output(self):
+        result = self.run_builder("--message", "Release\n---\n\nCo-authored-by: Synthetic User")
+        self.assert_failed(result, b"release commit message contains trailers")
+
+    def make_parent(self):
+        parent = self.temp / "public release"
+        result = self.run_builder(output=parent)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        return parent
+
+    def public_commit(self, parent, *args, **changes):
+        env = dict(self.git_env, GIT_AUTHOR_NAME="Erenext LLC", GIT_AUTHOR_EMAIL="spinivo@erenext.com",
+                   GIT_COMMITTER_NAME="Erenext LLC", GIT_COMMITTER_EMAIL="spinivo@erenext.com",
+                   GIT_AUTHOR_DATE="1000000000 +0000", GIT_COMMITTER_DATE="1000000000 +0000")
+        env.update(changes)
+        self.git("commit", *args, root=parent, env=env)
+
+    def parent_oid(self, parent):
+        return self.git("rev-parse", "refs/heads/main", root=parent).strip().decode()
+
+    def run_followup(self, parent, oid=None):
+        if oid is None:
+            oid = self.parent_oid(parent)
+        return self.run_builder("--parent-repo", parent, "--parent-commit", oid, "--message", "Next release")
+
+    def test_followup_advances_public_main_by_one_commit(self):
+        parent = self.make_parent()
+        self.git("branch", "other", root=parent)
+        (parent / "NOTICE").write_bytes(b"Earlier update\n")
+        self.public_commit(parent, "-am", "Earlier release")
+        self.git("tag", "earlier", root=parent)
+        oid = self.parent_oid(parent)
+        self.git("symbolic-ref", "HEAD", "refs/heads/other", root=parent)
+        self.git("rm", "--", FILE)
+        self.write("NOTICE", b"Next update\n")
+        self.git("commit", "-am", "Update private source")
+
+        result = self.run_followup(parent, oid.upper())
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        commit, tree = self.git("rev-parse", "HEAD", "HEAD^{tree}", root=self.output).splitlines()
+        self.assertEqual(result.stdout, b"cleared 3, excluded 1, commit %s, tree %s\n" % (commit, tree))
+        self.assertEqual(self.git("rev-list", "--parents", "-1", "HEAD", root=self.output).split(),
+                         [commit, oid.encode()])
+        self.assertEqual(self.git("rev-list", "--count", "--all", root=self.output), b"3\n")
+        self.assertEqual(self.git("symbolic-ref", "HEAD", root=self.output), b"refs/heads/main\n")
+        self.assertEqual(self.git("for-each-ref", "--format=%(refname)", root=self.output), b"refs/heads/main\n")
+        self.assertEqual(self.git("remote", root=self.output), b"")
+        self.assertEqual(self.git("log", "-1", "--format=%s", root=self.output), b"Next release\n")
+        self.assertEqual(self.git("ls-tree", "-r", "--name-only", "HEAD", root=self.output),
+                         b"LICENSE\nNOTICE\nREADME.md\n")
+        self.assertEqual((self.output / "NOTICE").read_bytes(), b"Next update\n")
+        self.assertFalse((self.output / FILE).exists())
+        self.assertEqual(self.parent_oid(parent), oid)
+
+    def test_followup_refuses_stale_or_non_full_oid(self):
+        parent = self.make_parent()
+        stale = self.parent_oid(parent)
+        self.public_commit(parent, "--allow-empty", "-m", "Advance main")
+        self.assert_failed(self.run_followup(parent, stale), b"parent main does not match --parent-commit")
+        self.assert_failed(self.run_followup(parent, self.parent_oid(parent)[:12]), b"full hex commit OID")
+
+    def test_followup_requires_exact_main_ref(self):
+        parent = self.make_parent()
+        oid = self.parent_oid(parent)
+        self.git("branch", "-m", "refs/heads/main", root=parent)
+        self.assert_failed(self.run_followup(parent, oid), b"git show-ref failed")
+
+    def test_followup_refuses_foreign_identity_in_ancestor(self):
+        parent = self.make_parent()
+        self.public_commit(parent, "--allow-empty", "-m", "Foreign author", GIT_AUTHOR_NAME=AUTHOR)
+        self.public_commit(parent, "--allow-empty", "-m", "Valid tip")
+        self.assert_failed(self.run_followup(parent), b"release author identity or UTC offset differs")
+
+    def test_followup_refuses_non_utc_parent(self):
+        parent = self.make_parent()
+        self.public_commit(parent, "--allow-empty", "-m", "Different offset", GIT_COMMITTER_DATE="1000000000 +0100")
+        self.assert_failed(self.run_followup(parent), b"release committer identity or UTC offset differs")
+
+    def test_followup_refuses_parent_trailer(self):
+        parent = self.make_parent()
+        self.public_commit(parent, "--allow-empty", "-m", "Release\n\nCo-authored-by: Synthetic User")
+        self.assert_failed(self.run_followup(parent), b"release commit message contains trailers")
+
+    def test_followup_refuses_parent_trailer_after_divider(self):
+        parent = self.make_parent()
+        self.public_commit(parent, "--allow-empty", "-m", "Release\n---\n\nCo-authored-by: Synthetic User")
+        self.assert_failed(self.run_followup(parent), b"release commit message contains trailers")
+
+    def test_followup_refuses_merge_history(self):
+        parent = self.make_parent()
+        self.git("switch", "-c", "side", root=parent)
+        self.public_commit(parent, "--allow-empty", "-m", "Side commit")
+        self.git("switch", "main", root=parent)
+        merge = self.git("commit-tree", "HEAD^{tree}", "-p", "HEAD", "-p", "side", "-m", "Merge", root=parent)
+        self.git("update-ref", "refs/heads/main", merge.strip(), root=parent)
+        self.assert_failed(self.run_followup(parent), b"release history must be linear")
+
+    def test_followup_refuses_unchanged_tree(self):
+        parent = self.make_parent()
+        self.assert_failed(self.run_followup(parent), b"release tree equals the parent tree")
+
+    def test_followup_refuses_private_source_as_parent(self):
+        self.assert_failed(self.run_followup(self.root), b"--parent-repo must be separate from ROOT")
+
+    def test_followup_refuses_different_object_format(self):
+        parent = self.temp / "sha256"
+        parent.mkdir()
+        self.git("init", "--template=", "--initial-branch=main", "--object-format=sha256", root=parent)
+        self.assert_failed(self.run_followup(parent, "0" * 40), b"parent and source object formats must match")
+
+    def test_followup_parent_options_are_paired(self):
+        for args in (("--parent-repo", self.root), ("--parent-commit", "0" * 40)):
+            with self.subTest(args=args):
+                self.assert_failed(self.run_builder(*args, "--message", "Next release"), b"must be used together")
+
+    def test_followup_requires_message(self):
+        parent = self.make_parent()
+        result = self.run_builder("--parent-repo", parent, "--parent-commit", self.parent_oid(parent))
+        self.assert_failed(result, b"--message is required for a follow-up release")

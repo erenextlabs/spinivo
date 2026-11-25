@@ -1,11 +1,16 @@
 import csv
 import json
+import re
 import shutil
+import struct
 import subprocess
 import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
+
+from nmrglue.fileio import jeol
 
 from tools.build_case_manifest import build
 
@@ -69,7 +74,7 @@ class BuildCaseManifestTests(unittest.TestCase):
         self.assertNotIn(ser["path"], runs)
 
         out = self.temp / "out.json"
-        command = [sys.executable, str(PROJECT / "tools/build_case_manifest.py"),
+        command = [sys.executable, "-E", "-B", str(PROJECT / "tools/build_case_manifest.py"),
                    "--manifest", str(manifest), "--data-root", str(self.root), "--out", str(out)]
         expected = (json.dumps(result, indent=2, sort_keys=True) + "\n").encode("utf-8")
         for _ in range(2):
@@ -87,6 +92,69 @@ class BuildCaseManifestTests(unittest.TestCase):
                                     if acqus_path not in line), encoding="utf-8")
         with self.assertRaisesRegex(ValueError, "No matching inventory run for window .*bruker"):
             build(manifest, WINDOWS, self.root)
+
+    def _build_single_row(self, **overrides):
+        row = dict(deposit_id="deposit", archive="data.zip", path="run.jdf", kind="jdf", sha256="0" * 64)
+        row.update(overrides)
+        manifest = self.temp / "manifest.csv"
+        with manifest.open("w", encoding="utf-8", newline="") as stream:
+            writer = csv.DictWriter(stream, row)
+            writer.writeheader()
+            writer.writerow(row)
+        return build(manifest, WINDOWS, self.root)
+
+    def test_inventory_key_requires_plain_components(self):
+        for field, value in (
+            ("path", "folder/../run.jdf"), ("path", "/run.jdf"), ("path", "folder//run.jdf"),
+            ("path", "./run.jdf"), ("path", r"folder\run.jdf"), ("path", "run.jdf/"),
+            ("deposit_id", ".."), ("deposit_id", "folder/deposit"), ("archive", "../data.zip"),
+            ("deposit_id", "D:"), ("path", "C:/run.jdf"),
+        ):
+            with self.subTest(field=field, value=value), self.assertRaisesRegex(
+                ValueError, "Invalid inventory key .*" + re.escape(repr(value))
+            ):
+                self._build_single_row(**{field: value})
+
+    def test_metadata_symlinks_cannot_leave_archive(self):
+        folder = self.root / "deposit/x_data"
+        folder.mkdir(parents=True)
+        outside = folder.parent / "outside"
+        outside.write_bytes(b"")
+        for kind, raw, metadata in (("jdf", "run.jdf", "run.jdf"), ("bruker_fid", "fid", "acqus")):
+            (folder / metadata).symlink_to(outside)
+            key = ("deposit", "data.zip", raw)
+            with self.subTest(kind=kind), self.assertRaisesRegex(
+                ValueError, "Metadata path leaves archive folder for inventory key " + re.escape(repr(key))
+            ):
+                self._build_single_row(kind=kind, path=raw)
+
+        outside_archive = self.temp / "outside_archive"
+        outside_archive.mkdir()
+        shutil.copyfile(PROJECT / JEOL, outside_archive / "run.jdf")
+        folder.rename(folder.with_name("x_previous"))
+        folder.symlink_to(outside_archive, target_is_directory=True)
+        key = ("deposit", "data.zip", "run.jdf")
+        with self.subTest(kind="archive"), self.assertRaisesRegex(
+            ValueError, "Metadata path leaves archive folder for inventory key " + re.escape(repr(key))
+        ):
+            self._build_single_row()
+
+    def test_jdf_string_scaler_checked_before_parsing(self):
+        path = self.root / "deposit/x_data/run.jdf"
+        path.parent.mkdir(parents=True)
+        data = bytearray((PROJECT / JEOL).read_bytes())
+        _, header = jeol.read_header(jeol.IOBuffer(data, jeol.ConversionTable))
+        order = "<" if header["endian"] == "little_endian" else ">"
+        start = header["param_start"]
+        end = start + header["param_length"]
+        record = next(offset for offset in range(start + 16, end, 64)
+                      if struct.unpack_from(order + "i", data, offset + 32)[0] == 0)
+        struct.pack_into(order + "h", data, record + 4, 20)
+        path.write_bytes(data)
+        with (patch.object(jeol, "read_parameters") as parse,
+              self.assertRaisesRegex(ValueError, re.escape(str(path)) + ": invalid JDF parameter scaler")):
+            self._build_single_row()
+        parse.assert_not_called()
 
     def test_snapshot_hashes_cases_and_links(self):
         result = build(MANIFEST, WINDOWS, self.root)

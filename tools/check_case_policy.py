@@ -47,12 +47,12 @@ def check_cohorts(manifest_path=MANIFEST, windows_path=WINDOWS):
 def _check_pilot_pairs(manifest):
     from tools.build_case_manifest import PILOT_PATHS, _nishizaki_key
 
-    pins = {tuple(map(_nishizaki_key, paths)) for paths in PILOT_PATHS.values()}
-    pairs = {(tuple(pair["sample"]["raw_key"]), tuple(pair["ec"]["raw_key"]))
+    pins = {f"pilot-{figure}": tuple(map(_nishizaki_key, paths)) for figure, paths in PILOT_PATHS.items()}
+    pairs = {pair["id"]: (tuple(pair["sample"]["raw_key"]), tuple(pair["ec"]["raw_key"]))
              for pair in manifest["pilot_pairs"]}
     if pairs != pins or len(manifest["pilot_pairs"]) != len(pins):
         raise ValueError("Manifest pilot pairs differ from the pinned pilot pairs")
-    return pairs
+    return set(pairs.values())
 
 
 def preflight_purity(method, sample_key, ec_key=None):

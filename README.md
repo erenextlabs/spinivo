@@ -1,6 +1,6 @@
 # Spinivo
 
-Spinivo is a free, open source quality tool for quantitative NMR (qNMR). It reads a raw JEOL or Bruker FID, checks the acquisition settings, flags unreliable integrals and computes purity with a GUM uncertainty budget. When the evidence is missing, it reports that the result cannot be assessed.
+Spinivo is a free, open source quality tool for quantitative NMR (qNMR). It reads supported raw JEOL and Bruker FIDs, checks acquisition settings and integral regions, and calculates purity with a GUM uncertainty budget when the required evidence is available. When required evidence is missing, Spinivo reports that checked purity cannot be assessed and names what is needed.
 
 ## Install and use
 
@@ -10,22 +10,27 @@ From a checkout of this repository, install Spinivo in a Python 3.11 or newer en
 python -m pip install .
 ```
 
-Use `inspect` for a JEOL JDF file or Bruker experiment folder. Use `assess` for a JSON assay record. Both commands default to text and accept `--format json`. See the [assay record format](docs/assay-record.md).
+Use `inspect` for a JEOL JDF file or Bruker experiment folder. Use `assess` for a JSON assay record. Use `compare` to compare a checked assay with your own certified reference material (CRM). Each command defaults to text and accepts `--format json`. See the [assay record format](docs/assay-record.md) and the [CRM comparison](docs/crm-comparison.md).
 
 ```sh
 spinivo inspect /path/to/sample.jdf --format json
 spinivo assess /path/to/assay.json
+spinivo compare /path/to/comparison.json
 ```
 
 You can also use `python -m spinivo` in place of `spinivo`.
 
 ## Limitations
 
-Spinivo v1.0 is planned as a limited preview for conventional 1D proton qNMR from JEOL and Bruker raw data. Both the internal-standard and external-calibration methods still need an independent test set. Pilot spectra and workbooks help check file handling and calculations. Accuracy, the fraction of preparations that yield checked purity, and agreement within reported uncertainty remain unverified for both methods.
+Spinivo 1.1.0 supports conventional 1D proton qNMR. A checked pass means the documented checks passed for the supplied assay. Spinivo reproduces specified calculations and GUM propagation for supported inputs. Spinivo makes no general purity accuracy claim. Budget completeness and uncertainty coverage on real samples remain unverified. The fraction of eligible preparations that yield checked purity is also unmeasured for both methods.
 
-Reader and acquisition checks have fixture coverage. Further validation is needed for both vendors. Integral warnings use pilot thresholds and need testing on independently labelled real spectra. The baseline warning needs independent validation. Spinivo reports the effect of baseline shape on the area ratio separately from the checked-purity budget. External calibration still needs a verified comparison of receiver scaling and sample response across tubes. Some pilot area ratios differ from workbook values.
+Reader and acquisition checks use fixtures. Integral warnings use pilot thresholds, with release scores measured on a frozen synthetic set. The baseline warning has yet to be validated independently. Spinivo reports the effect of baseline shape on the area ratio as a diagnostic and excludes it from the checked-purity budget. Nishizaki spectra and workbooks provide development evidence for both methods. Some pilot area ratios differ from workbook values.
 
-A checked result requires signal bounds and sourced assignments, applicable relaxation and pulse calibration records, a noise region, preparation details and supported uncertainty inputs. External calibration also requires a documented pair and evidence for the relative receiver scale. Spinivo withholds checked purity when required evidence is missing. Entered areas give a calculation only. See the [open gates](docs/open-gates.md) for the evidence still needed and the conditions for publication.
+A checked result requires signal bounds and sourced assignments, applicable relaxation and pulse calibration records, a noise region, preparation details and supported uncertainty inputs. External calibration also requires a documented pair and evidence for receiver scaling and response transfer. Spinivo withholds checked purity when required evidence is missing. Entered areas give a calculation-only value.
+
+The `compare` command compares checked purity with the laboratory's own certified reference material (CRM) and reports signed error, uncertainty agreement and a separate verdict against the laboratory's predeclared limit ([CRM comparison](docs/crm-comparison.md)). Neither verdict qualifies a method or releases a batch. Each laboratory is responsible for its own method validation and batch release.
+
+Release qualification uses software checks. The optional holdout study covers independent accuracy, fraction assessed and uncertainty agreement. [Software release gates](docs/open-gates.md#software-release-gates) · [Optional holdout study](docs/open-gates.md#optional-holdout-study)
 
 ## Licence
 

@@ -3,6 +3,7 @@ from contextlib import redirect_stderr, redirect_stdout
 from copy import deepcopy
 from dataclasses import fields, replace
 from io import StringIO
+from math import inf, nan
 from unittest.mock import patch
 
 from spinivo import read
@@ -137,6 +138,22 @@ class PilotStageTests(unittest.TestCase):
                 self.assertIn("Cross-tube G7/G6", late)
                 self.assertRegex(late, r"baseline \| as in compare_references \| (\d+\.\d+) \| \1 \| 1 \| \+0\.0000%")
                 self.assertTrue(late.endswith(verdict))
+
+    def test_invalid_bounds_keep_valid_sibling_area(self):
+        references = load_references()
+        pilot = references["pilots"][0]
+        fixture = references["fixtures"]["jeol"]
+        raw = read(FIXTURES / fixture["path"])
+        sample = pilot["runs"][0]["regions"]
+        sample["I149"]["bounds_ppm"] = fixture["regions_ppm"]["DMSO2"]
+        for limits in ([2.90], [2.90, 3.01, 3.02], [2.90, inf], [nan, 3.01]):
+            with self.subTest(limits=limits):
+                sample["G149"]["bounds_ppm"] = limits
+                with patch.object(pilot_stages, "read", return_value=raw), redirect_stdout(StringIO()) as output:
+                    pilot_stages.report_pilot(FIXTURES, pilot, references, _pilot_paths(pilot))
+                report = output.getvalue()
+                self.assertRegex(report, r"baseline \| as in compare_references \| \d+\.\d+ \| \d+\.\d+ \|")
+                self.assertIn("sample G149/I149 ratio=unknown", report)
 
     def test_nonpositive_areas_warn_and_keep_signed_values(self):
         references = load_references()

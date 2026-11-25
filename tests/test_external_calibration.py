@@ -506,6 +506,30 @@ class ExternalCalibrationLinkTests(unittest.TestCase):
                         self.assertIsNone(result.R)
                         self.assertIsNone(purity_report(result)[role]["header"])
 
+    def test_removed_run_preserves_surviving_region_unit_warning(self):
+        (signal, region), = self.inputs["calibrant_regions"]
+        linked = self.link(calibrant_regions=((signal, replace(region, area=replace(region.area, unit=None))),))
+        warning = "linked area units: Region units are missing"
+        self.assertIn(f"{warning} (I149 sample region 1 = 'intensity*Hz', {signal} calibrant region 1 = None)",
+                      calculate_external_calibration(linked).reasons)
+        result = calculate_external_calibration(replace(linked, sample=None))
+        self.assertIn(f"{warning} ({signal} calibrant region 1 = None)", result.reasons)
+        self.assertEqual(result.J_s, self.original.J_s)
+        result = calculate_external_calibration(replace(linked, calibrant=None))
+        self.assertFalse(any(reason.startswith(warning) for reason in result.reasons))
+
+    def test_removed_run_respects_current_prerequisites_and_order(self):
+        linked = self.link()
+        recovery, snr, resolution = (check for check in linked.prerequisites if check.name.startswith("calibrant "))
+        sample = next(check for check in linked.prerequisites if check.name.startswith("sample "))
+        flag = replace(recovery, status="flag", reason="Reviewed recovery evidence")
+        current = (resolution, flag, sample, snr, self.prerequisite)
+        result = calculate_external_calibration(replace(linked, sample=None, prerequisites=current))
+        self.assertIn(flag.message, result.reasons)
+        missing = Prerequisite("sample run", "cannot be assessed", "Missing run record")
+        self.assertEqual(purity_report(result)["prerequisites"],
+                         [vars(check) for check in (flag, self.prerequisite, resolution, snr, missing)])
+
     def test_two_linked_files_are_not_transfer_evidence(self):
         self.assertLinkBlocked(self.link(replace(self.starting, pair=None)), "pair record is missing")
         self.assertLinkBlocked(self.link(replace(self.starting, S=None)),

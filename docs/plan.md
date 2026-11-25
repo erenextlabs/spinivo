@@ -1,10 +1,8 @@
-# Spinivo v1.0 plan
+# Spinivo plan
 
 ## 1. Goal and non-goals
 
-Spinivo will assess whether a 1D proton qNMR experiment supports a reported purity. It will check acquisition settings and integral regions, calculate analyte mass fraction by either of two calibration methods, and report a GUM uncertainty budget. When evidence is missing, it will say **cannot be assessed** and identify what is needed.
-
-Out of purpose: instrument control, compound identification, regulatory certification and release decisions.
+Spinivo reads supported 1D proton qNMR files and applies documented acquisition and integral checks. For supported inputs it reproduces specified purity calculations and GUM propagation. When evidence is missing, it says **cannot be assessed** and identifies what is needed. Out of scope are instrument control, compound identification, regulatory certification and batch release.
 
 ## 2. Users and main use cases
 
@@ -12,11 +10,12 @@ Out of purpose: instrument control, compound identification, regulatory certific
 |---|---|
 | QC analyst | Check a run before reporting purity. Identify a setting, signal or calibration pair that needs review. |
 | Academic researcher | Assess an archived experiment and see which measurements or preparation records would make it reusable. |
-| Reference material maker | Reproduce a mass-fraction result and inspect each contribution to its uncertainty. |
+| Reference material maker | Reproduce a mass-fraction result and inspect its uncertainty contributions. |
+| Laboratory | Compare checked purity with its own certified reference material (CRM) with the `compare` command. |
 
 All users get the same checks through a Python command line tool or an importable library.
 
-## 3. v1.0 scope
+## 3. Scope
 
 **Inputs.** Read JEOL `.jdf` files and Bruker experiment folders containing `fid` and `acqus`. Support conventional 1D ¹H pulse-acquire experiments, including the calibrated 90° acquisition with ¹³C decoupling used in the Nishizaki study. Identify unsupported variants explicitly.
 
@@ -33,7 +32,7 @@ All users get the same checks through a Python command line tool or an importabl
 | Acquisition checks | Check D1 against applicable signal T1 values. Use the pulse sequence, acquisition time and calibrated flip angle to assess recovery. Measure S/N using a stated noise region. Compare acquired Hz per point with signal linewidth before zero filling. Apply the checks to both external runs. |
 | Integral checks | Assess each selected region for neighbouring signals, phase or baseline distortion, and sensitivity to modest changes in bounds. Record the observation and affected region. An expected multiplet may form one valid integral. |
 | Calibration and uncertainty | Apply the selected measurement model, check its prerequisites, and propagate standard uncertainties and covariance. |
-| Reporting | One library result; the CLI renders plain text or versioned JSON with method, IDs, versions, quantities with units, evidence, check outcomes and reasons. |
+| Reporting | The CLI renders the library result as text or versioned JSON with method, IDs, versions, quantities with units, evidence, statuses and reasons. |
 
 ### Internal standard
 
@@ -45,7 +44,7 @@ The assay record links both signals to one tube. It supplies their assignments, 
 
 ### External calibration
 
-Link the sample run to a calibrant run by file and preparation ID. Let `c_s` be the calibrant molar concentration, `V_a` the final volume of the sample solution and `J` the area on a common per-scan receiver scale. For a directly prepared solution that contains the weighed sample:
+Link both runs and preparations by a traceable pair record or documented analyst attestation. Require separate receiver gain and scale evidence for each run (decision 2). Let `c_s` be the calibrant molar concentration, `V_a` the final volume of the sample solution and `J` the area on a common per-scan receiver scale. For a directly prepared solution that contains the weighed sample:
 
 `w_a = (J_a/J_s) × (N_s/N_a) × c_s × (M_a V_a/m_a) × K`
 
@@ -61,59 +60,62 @@ Use a certified `c_s` or calculate it from the calibrant preparation: `c_s = m_s
 
 For each material input, report its value, standard uncertainty, source, sensitivity coefficient and contribution. Include weighing, standard purity or concentration, integral repeatability and material molar-mass uncertainty. For external calibration also include solution preparation, relative intensity scaling, response transfer and drift. Include covariance from shared balances, stock solutions or calibrant runs where applicable. Count each contribution once. Report combined standard uncertainty and, when justified, expanded uncertainty with its coverage factor.
 
-Each check returns **pass**, **flag** or **cannot be assessed**. An observed defect retains its flag. If a required integral is unreliable, or material acquisition, calibration or uncertainty evidence is unresolved, the final purity is **cannot be assessed**. The report retains the measured areas and the reason for withholding purity.
+Checks return **pass**, **flag** or **cannot be assessed**. A checked pass means the documented checks passed. Purity accuracy, budget completeness and coverage on real samples remain unverified. Baseline shape is reported in text and JSON as an area-ratio diagnostic outside the budget (decisions 14 and 20).
+
+Withhold checked purity as **cannot be assessed** if a required integral is unreliable or required evidence is missing. Keep observed flags, measured areas and reasons. Entered areas give a calculation-only value under decisions 1 and 11.
 
 ## 5. Test data and ground truth
 
 | Public source | Evidence and intended use |
 |---|---|
-| Nishizaki et al., Harvard Dataverse, `10.7910/DVN/QFY6L9`, CC0 | **Main external-calibration accuracy test.** Paper: Anal. Chem., `10.1021/acs.analchem.0c02967`. Caffeine CRM (certified 99.9%) against external dimethyl sulfone; JEOL 400 MHz, calibrated 90° pulse, ¹³C decoupling, D1 20 or 60 s. One 1.13 GB ZIP holds raw data and calculation sheets. Paper reports 16 solutions from 3 weighing sessions; solutions 1 to 8 also hold maleic acid as a same-tube internal standard. Archive holds 1,233 JDF files and five workbooks (see `data-inventory.md`). Map pairs and preparations before scoring. Reserve the caffeine certificate value for comparison. |
+| Nishizaki et al., Harvard Dataverse, `10.7910/DVN/QFY6L9`, CC0 | **Development evidence for both methods.** Anal. Chem., `10.1021/acs.analchem.0c02967`. Caffeine CRM (99.9%) against external dimethyl sulfone. JEOL 400 MHz, calibrated 90° pulse, ¹³C decoupling, D1 20 or 60 s. The 1.13 GB ZIP contains 1,233 JDF files and five workbooks. The paper reports 16 solutions from 3 weighing sessions. Solutions 1 to 8 also contain same-tube maleic acid. Map pairs to preparations. Compare eligible external pairs against the caffeine certificate by preparation and D1. [docs/data-inventory.md](data-inventory.md) |
 | Harvard Dataverse, `10.7910/DVN/MW7WUP` | Bruker, CC0. 26 bare `fid` files without `acqus`, so weak for reader tests. Four analytes; no confirmed independent analyte values. |
 | Zenodo, `10.5281/zenodo.17083860` | Bruker, CC BY 4.0. Complete experiment folders with `acqus`; best Bruker reader fixture. Fermentation titers, no independent purity. |
 | Harvard Dataverse, `10.7910/DVN/HXRZIY` | CC0, unpublished study; external DMSO2 calibrant, line-shape fitting; access may need a request. Low priority. |
 | Project-generated public fixtures | Record the fixture licence, generation settings and expected values. Known component areas and separations test integral behaviour. Hand-worked assays test both measurement models. Score real spectra separately. |
 
-**Internal-standard accuracy:** Nishizaki solutions 1 to 8 are the first candidate; a Bruker same-tube set with an independent reference is still missing. A calculation sheet shows reproducibility, not accuracy.
+Publish the Nishizaki development comparisons with every miss. Label them as non-independent and express workbook discrepancies as relative area-ratio differences and certificate differences in mass-fraction percentage points. [docs/open-gates.md](open-gates.md)
 
 Keep a manifest of deposit versions, paths, checksums, licences, attributions, preparation IDs, calibration links and expected-value sources. Use only public data with verified reuse terms. Keep copyrighted figures and full texts out of the repository.
 
-**Integral ground truth.** Label each region reliable, unreliable or indeterminate. Record independent evidence, such as a clean component spectrum or a known added interferent. A sample purity certificate cannot establish which region is reliable. The review method uses a blind three-provider LLM jury, an anonymised Delphi round for splits and human expert review for remaining splits. Factual labels need checkable evidence. Otherwise keep them indeterminate.
+**Real integral labels.** Use decision 3's predeclared, sourced impurity band, blank or component evidence with alignment and scale. The blind three-provider LLM jury and anonymised Delphi round give development annotations. Keep unresolved or unsupported labels indeterminate. Human expert review is optional. Report real-region scores and counts by cause separately from release scoring.
 
 ## 6. Validation and acceptance
 
-Pilot first. Before opening the holdout, the owner approves targets, minimum independent case counts and permitted exclusions. Freeze rules, reference values and group assignments. Keep runs from one preparation together. Keep shared external calibration batches together where possible and disclose any dependency. Report case counts, exclusions and abstentions by vendor and calibration method.
+Decision 20 uses reproducible checks on existing fixtures and hand-worked examples. No new third-party data, measurements or external sign-off are required. Freeze fixture versions, expected values and tolerances before evaluation. [docs/decisions.md](decisions.md), [docs/open-gates.md](open-gates.md)
 
-| Test | Acceptance check |
+| Release gate | Acceptance check |
 |---|---|
-| Readers and acquisition | For each vendor, compare nucleus, point count, spectral width, D1, ppm direction and a known peak position against independent records. Exercise both sides of rule boundaries. A pulse width without calibration cannot establish flip angle. |
-| Integral flags | Report precision, recall, counts by failure cause and fraction assessed on held-out real regions. Count an abstention on a known unreliable region as a miss for recall. **Provisional** targets are precision ≥0.90, recall ≥0.80 and ≥0.90 assessed among labelled regions. Report synthetic scores separately. |
-| Internal purity | Reproduce a hand-worked result and budget, including covariance, to stated rounding. Score real accuracy on eligible same-tube preparations once available. |
-| External purity | Reproduce a hand-worked matched pair and budget. Test a known non-unity `K` for correction direction, equivalent summed and averaged scans for identical results, and an unsupported gain or probe mismatch for abstention. Compare eligible Nishizaki pairs against 99.9% caffeine by preparation and D1. Compare intermediate quantities with the sheets to locate discrepancies. |
-| Accuracy for each method | Report signed bias, median absolute error in mass-fraction percentage points, agreement relative to combined measurement and reference uncertainty, and the fraction of eligible preparations given a result. Median absolute error targets are ≤0.50 percentage points for internal standard and ≤0.75 for external calibration; counts, coverage and exclusions are in owner decision 13 (docs/decisions.md). Record reference uncertainty and its coverage basis before judging uncertainty agreement. |
-| Missing evidence | Remove one required fact at a time from passing assays. Include T1, pulse calibration, noise region, standard mass for a weighed standard, external run pairing, calibrant concentration or its preparation inputs, and a material uncertainty term. Require **cannot be assessed**, the specific reason, no dependent purity value and intact independent checks. Restoring the fact must restore the original result. |
-| End to end | Match CLI and library statuses, values, units and reasons for both methods. Require specific diagnostics for a truncated file, missing `acqus` and an unsupported experiment. |
+| Readers and acquisition | For JEOL and Bruker, match fixture references for nucleus, point count, spectral width, D1, intensity scale, ppm direction, peaks and areas. Test recovery, S/N and resolution boundaries. Require diagnostics for a truncated file, missing `acqus` and an unsupported experiment. |
+| Calculation and budget | Match hand-worked internal-standard and external-calibration results and budgets, including covariance, to stated rounding. Verify non-unity `K`, equivalence of summed and averaged scans, and abstention for unsupported gain or probe mismatch. |
+| Missing evidence | Remove and restore each required input in passing cases, including T1, pulse calibration, noise region, standard mass, external pairing, calibrant concentration or preparation inputs, and a material uncertainty. Require **cannot be assessed** with a reason, withheld dependent purity and intact independent checks. Restoration must recover the result. |
+| CLI and library agreement | Match statuses, values, units and reasons for both methods in text and versioned JSON. |
+| Licence | Verify redistribution rights, licence text and required credits for the candidate files. |
+| Export | Pass the allowlist check and ship the cleared tree under decisions 15 and 18. |
+| Privacy | Pass the privacy scans of the public candidate tree and commit message. Verify original fixture checksums under decision 16. |
+| Synthetic integral flags | On `tests/fixtures/integral_cases.json` (13 base regions, `pilot-3`, SHA-256 `a8d70433bd900b9a8e3280ea6edb4c64e961d203534a95b7d940ba611e63d951`), require precision ≥0.90, recall ≥0.80 and ≥0.90 assessed among reliable and unreliable labels. Report indeterminate cases separately. Count abstention on an unreliable label as a recall miss. Changing the scored set needs a new owner decision and both old and new scores. |
 
-If a holdout lacks enough independent preparations or labelled regions, keep the affected release check open.
+The decision 13 holdout study is optional under decision 19. Accuracy, fraction assessed and uncertainty agreement are unmeasured for both methods. Decision 13 retains the ≤0.50 and ≤0.75 mass-fraction percentage-point median absolute error targets for internal and external calibration respectively, as well as the counts, exclusions and scoring rules. Separate shared-lot covariance from independent preparation counts in the scorer before reporting decision 19 results. [docs/open-gates.md](open-gates.md#optional-holdout-study)
 
 ## 7. Milestones
 
 | Step | Done when |
 |---|---|
-| 1. Inventory and pair the data | The manifest identifies qualified vendor fixtures, eligible Nishizaki pairs, independent preparations and gaps in same-tube reference data. |
+| 1. Inventory and pair the data | The manifest identifies vendor fixtures, Nishizaki development pairs, preparation links and reference gaps. |
 | 2. Read both formats | JEOL and Bruker readers pass field, intensity-scale and axis checks on real fixtures and identify unsupported inputs. |
 | 3. Process and check acquisition | Reference spectra reproduce their peaks and areas. Boundary and missing-field tests give the expected statuses. |
 | 4. Check integrals | The labelling rubric and evidence are recorded. Clean, contaminated and indeterminate regions exercise distinct report paths. |
 | 5. Calculate internal-standard purity | A complete same-tube assay reproduces its hand-worked result and GUM budget. A blocked assay gives the specific reason. |
-| 6. Calculate external-calibration purity | A verified Nishizaki pilot pair runs end to end. Scaling, correction direction, uncertainty and mismatch tests pass. |
-| 7. Qualify and release v1.0 | The owner approves targets before holdout access. Both methods meet their frozen gates, CLI and library agree, and licence review is complete. The owner then authorises publication. |
+| 6. Calculate external-calibration purity | A matched fixture pair runs end to end. Scaling, correction direction, uncertainty and mismatch tests pass. |
+| 7. Qualify and release | Pass section 6 and obtain owner publication approval. |
+| Laboratory CRM comparison ([docs/crm-comparison.md](crm-comparison.md)) | Compare checked purity with the laboratory's CRM certificate per preparation. Report signed error in mass-fraction percentage points, uncertainty agreement (\|error\| ≤ k·u(error)) and a separate verdict against the predeclared absolute-error limit. Give a reason for each withheld verdict. Method validation and batch release remain the laboratory's responsibility. |
 
 ## 8. Risks and mitigations
 
-- **Unreliable integral labels.** Bias in two areas can cancel in final purity. Validate individual regions and retain indeterminate labels.
-- **False independence.** Many spectra may share one preparation or calibrant. Track those links and report independent counts.
-- **External response mismatch.** Test intensity handling, tube matching and drift on paired runs. Withhold purity where transfer cannot be justified.
-- **Sparse same-tube evidence.** Check candidate preparations early. Keep the internal-standard accuracy gate open until eligible public cases exist.
-- **False precision.** Show sources for material budget terms and test missing uncertainties explicitly.
+- **Unreliable integral labels.** Bias in two areas can cancel. Check each region and retain indeterminate labels.
+- **False independence.** Track shared preparations and calibrants. Disclose the sparse same-tube reference evidence.
+- **External response mismatch.** Test scaling, tube matching and drift. Withhold purity where transfer cannot be justified.
+- **False precision.** Show sources for budget terms and the baseline-shape exclusion.
 
 ## 9. Decisions
 
@@ -125,11 +127,4 @@ If a holdout lacks enough independent preparations or labelled regions, keep the
 4. Run a pilot first. The owner approves numerical targets and minimum evidence before the holdout opens.
 5. Keep the repository private through v1.0 validation and licence review. The owner controls publication.
 
-Later owner decisions: docs/decisions.md.
-
-### Still open
-
-| Decision | Options and recommendation |
-|---|---|
-| Final acceptance values and case counts | **Decided 24 Nov 2026:** separate gates for each method, owner decision 13 in docs/decisions.md. |
-| Source of internal-standard accuracy cases | **Qualify an existing public deposit first**, or seek a purpose-prepared assay released publicly with its preparation record and independent reference. Existing candidates can be assessed as soon as deposit verification finishes. |
+Later decisions supersede parts of the original plan. Decisions 5, 6, 7 and 13 record the earlier accuracy and preview rules, and decisions 19, 20 and 21 define the optional study, current release scope and version label. The private period ended with the `1.0.0b1` preview (decision 17), and decision 21 sets the first regular release, `1.1.0`, under decision 20. [docs/decisions.md](decisions.md)

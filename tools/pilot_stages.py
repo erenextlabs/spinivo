@@ -15,6 +15,7 @@ if __name__ == "__main__":
 from spinivo import read
 from spinivo.assessment_report import baseline_shape_text
 from spinivo.filters import resolve_delay
+from spinivo.internal_standard import _finite
 from spinivo.pipeline import BaselineShapeRegion, baseline_shape_diagnostic
 from spinivo.processing import ProcessingSettings, baseline_shape_areas, integrate, process, uses_quantitative_settings
 from tools.build_case_manifest import _nishizaki_key
@@ -98,7 +99,7 @@ def report_pilot(root, pilot, references, paths):
     bounds = {}
     for cell, (_, region) in cells.items():
         limits = region.get("bounds_ppm")
-        if limits is not None and None not in limits:
+        if isinstance(limits, (list, tuple)) and len(limits) == 2 and all(map(_finite, limits)):
             bounds[cell] = limits
 
     @lru_cache(maxsize=None)

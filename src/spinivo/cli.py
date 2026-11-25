@@ -1,4 +1,4 @@
-"""Render assay reports and raw FID metadata on the command line."""
+"""Render assay reports, CRM comparisons and raw FID metadata on the command line."""
 
 import argparse
 import os
@@ -6,7 +6,7 @@ import sys
 from dataclasses import fields
 from pathlib import Path
 
-from . import assay_record, assessment_report, readers
+from . import assay_record, assessment_report, crm_comparison, readers
 
 _INSPECT_SCHEMA = "spinivo.inspect/1"
 
@@ -25,9 +25,11 @@ def _parser():
     commands = parser.add_subparsers(dest="command", required=True)
     assess = commands.add_parser("assess", help="assess a JSON assay record")
     assess.add_argument("record", metavar="RECORD", type=Path)
+    compare = commands.add_parser("compare", help="compare a checked assay with a CRM certificate")
+    compare.add_argument("comparison", metavar="COMPARISON", type=Path)
     inspect = commands.add_parser("inspect", help="show raw FID acquisition metadata")
     inspect.add_argument("path", metavar="PATH", type=Path)
-    for command in (assess, inspect):
+    for command in (assess, compare, inspect):
         command.add_argument("--format", choices=("text", "json"), default="text")
     return parser
 
@@ -56,6 +58,20 @@ def _assess(path, format_name):
         return 1
     report = assessment_report.assessment_report(result, record if record.mode == "calculation_only" else None)
     render = assessment_report.render_json if format_name == "json" else assessment_report.render_text
+    _write_line(sys.stdout, render(report))
+    return 0
+
+
+def _compare(path, format_name):
+    try:
+        report = crm_comparison.compare(path)
+    except (assay_record.RecordError, OSError, RecursionError) as error:
+        _diagnostic(f"cannot load record: {error}")
+        return 3
+    except readers.UnsupportedInput as error:
+        _diagnostic(f"{error.reason}: {error}")
+        return 1
+    render = crm_comparison.render_json if format_name == "json" else crm_comparison.render_text
     _write_line(sys.stdout, render(report))
     return 0
 
@@ -100,6 +116,8 @@ def _run(argv):
         return error.code
     if args.command == "assess":
         return _assess(args.record, args.format)
+    if args.command == "compare":
+        return _compare(args.comparison, args.format)
     return _inspect(args.path, args.format)
 
 

@@ -40,6 +40,22 @@
           "ratio": 1.351665,
           "relative_residual": -0.0031527142940445695
         }
+      },
+      "vendor_region_areas": {
+        "source": "doi:10.7910/DVN/QFY6L9, FID02_Figure2/01_5mmNMRtube/Pattern1/0619_2019/01_MAandDMSO2_T1A_5mm_4226u1534u6000uL_yuzo190619_RG30_No90pw_D20s_NS32_qH-1-2.jdf, Delta zerofill(4), normalized fft, machinephase, ibase_correct",
+        "area_unit": "vendor amplitude*ppm",
+        "integration_rule": "Trapezoid on the native vendor real trace with interpolated endpoints, subtracting the line between those endpoints",
+        "scale": {
+          "formula": "K = raw.observe_frequency_mhz / raw.spectral_width_hz * (delta_zero_fill_factor * raw.complex_points)",
+          "delta_zero_fill_factor": 4,
+          "expected": 13984.579335380973
+        },
+        "rtol": 0.01,
+        "regions": {
+          "DMSO2": {"bounds_ppm": [2.90, 3.01], "vendor_area": 2.547928931904976e-05, "relative_error": -0.0037342848960899566},
+          "MA": {"bounds_ppm": [6.17, 6.28], "vendor_area": 1.906204705033383e-05, "relative_error": -0.0014281423534745485},
+          "solvent": {"bounds_ppm": [2.41, 2.52], "vendor_area": 0.00016544881382629943, "relative_error": 0.0010271933731968996}
+        }
       }
     },
     "bruker": {
@@ -61,6 +77,26 @@
           "source": "doi:10.5281/zenodo.17083860, qnmr_raw_data/raw data/1.batch/833-1-qnmr/10/pdata/1/1r, ppm grid from procs",
           "ratio": 38.81644,
           "relative_residual": 0.0013716719290361988
+        }
+      },
+      "vendor_region_areas": {
+        "source": "doi:10.5281/zenodo.17083860, qnmr_raw_data/raw data/1.batch/833-1-qnmr/10/pdata/1/1r, TopSpin ef LB 1, apk, abs ABSG 5",
+        "area_unit": "vendor amplitude*ppm",
+        "integration_rule": "Trapezoid on the native vendor real trace with interpolated endpoints, subtracting the line between those endpoints",
+        "scale": {
+          "formula": "K = raw.observe_frequency_mhz / raw.spectral_width_hz * 2**(NC_proc - NC), with NC from raw.storage_scale",
+          "NC_proc": -5,
+          "expected": 0.09511899535670398
+        },
+        "procs": {"PHC0": 73.038, "PHC1": -1.013792, "SI": 65536, "SF": 400.330037627532},
+        "expected_phase": {"p0_deg": -70.2377080039049, "p1_deg": 1.013792},
+        "rtol": 0.01,
+        "regions": {
+          "1.15-1.22 ppm": {"bounds_ppm": [1.15, 1.22], "vendor_area": 5946049.161066291, "relative_error": -0.0005114694127187347},
+          "7.64-7.69 ppm": {"bounds_ppm": [7.64, 7.69], "vendor_area": 238350.33729927614, "relative_error": 0.000057271672330161394},
+          "9.659-9.729 ppm": {"bounds_ppm": [9.659, 9.729], "vendor_area": 17566.3202508967, "relative_error": 0.0016760823191683816},
+          "7.179-7.205 ppm": {"bounds_ppm": [7.179, 7.205], "vendor_area": 718453.4020132653, "relative_error": 0.000009352145965424441},
+          "-0.016-0.015 ppm": {"bounds_ppm": [-0.016, 0.015], "vendor_area": 897492.4518352272, "relative_error": 0.0006453282723184461}
         }
       }
     }
