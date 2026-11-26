@@ -127,4 +127,4 @@ The decision 13 holdout study is optional under decision 19. Accuracy, fraction 
 4. Run a pilot first. The owner approves numerical targets and minimum evidence before the holdout opens.
 5. Keep the repository private through v1.0 validation and licence review. The owner controls publication.
 
-Later decisions supersede parts of the original plan. Decisions 5, 6, 7 and 13 record the earlier accuracy and preview rules, and decisions 19, 20 and 21 define the optional study, current release scope and version label. The private period ended with the `1.0.0b1` preview (decision 17), and decision 21 sets the first regular release, `1.1.0`, under decision 20. [docs/decisions.md](decisions.md)
+Later decisions supersede parts of the original plan. Decisions 5, 6, 7 and 13 record the earlier accuracy and preview rules, and decisions 19, 20, 21 and 23 define the optional study, current release scope and version labels. The private period ended with the `1.0.0b1` preview (decision 17), decision 21 sets the first regular release, `1.1.0`, under decision 20, and decision 23 sets `1.2.0`. [docs/decisions.md](decisions.md)

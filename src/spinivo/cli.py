@@ -6,7 +6,7 @@ import sys
 from dataclasses import fields
 from pathlib import Path
 
-from . import assay_record, assessment_report, crm_comparison, readers
+from . import assay_record, assessment_report, crm_comparison, html_report, readers
 
 _INSPECT_SCHEMA = "spinivo.inspect/1"
 
@@ -25,11 +25,12 @@ def _parser():
     commands = parser.add_subparsers(dest="command", required=True)
     assess = commands.add_parser("assess", help="assess a JSON assay record")
     assess.add_argument("record", metavar="RECORD", type=Path)
+    assess.add_argument("--format", choices=("text", "json", "html"), default="text")
     compare = commands.add_parser("compare", help="compare a checked assay with a CRM certificate")
     compare.add_argument("comparison", metavar="COMPARISON", type=Path)
     inspect = commands.add_parser("inspect", help="show raw FID acquisition metadata")
     inspect.add_argument("path", metavar="PATH", type=Path)
-    for command in (assess, compare, inspect):
+    for command in (compare, inspect):
         command.add_argument("--format", choices=("text", "json"), default="text")
     return parser
 
@@ -57,6 +58,15 @@ def _assess(path, format_name):
         _diagnostic(f"{error.reason}: {error}")
         return 1
     report = assessment_report.assessment_report(result, record if record.mode == "calculation_only" else None)
+    if format_name == "html":
+        page = html_report.render_html(report, hide_folders=(path.parent, Path.cwd(), Path.home())) + "\n"
+        # Keep the document's bytes consistent with its UTF-8 declaration.
+        buffer = getattr(sys.stdout, "buffer", None)
+        if buffer is None:
+            sys.stdout.write(page)
+        else:
+            buffer.write(page.encode("utf-8", errors="xmlcharrefreplace"))
+        return 0
     render = assessment_report.render_json if format_name == "json" else assessment_report.render_text
     _write_line(sys.stdout, render(report))
     return 0

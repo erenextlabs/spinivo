@@ -96,7 +96,7 @@ This excerpt starts at the report heading and ends after `Checks` (exit status `
 
 ```text
 FID02-MA-DMSO2 (internal_standard, internal_standard mode): cannot be assessed
-  spinivo.assessment/1, spinivo 1.1.0
+  spinivo.assessment/1, spinivo 1.2.0
   Checked purity: cannot be assessed
   Baseline shape (baseline-shape/1, diagnostic): computed, 6.5074131 % relative standard uncertainty
   Blocking reasons
@@ -122,6 +122,8 @@ FID02-MA-DMSO2 (internal_standard, internal_standard mode): cannot be assessed
 
 The baseline-shape diagnostic estimates how the area ratio changes under alternate baseline shapes. It sits outside the checked-purity budget and all assay checks.
 The separate `baseline` region check is part of the integral checks. [Baseline shape diagnostic](assay-record.md#baseline-shape-diagnostic)
+
+Run `spinivo assess tests/fixtures/records/jeol_internal_standard.json --format html > report.html` to save the report. Open `report.html` in a browser to read or print it. The HTML report shows each raw file by its name and hides the record, current and home folders. Error messages can still name other folders, so read a report before you share it.
 
 ## 6. Trace the blocking reasons to evidence
 
@@ -149,7 +151,7 @@ This excerpt shows the report from its heading through the expanded uncertainty,
 
 ```text
 FID06-INH-IC (internal_standard, calculation_only mode): cannot be assessed
-  spinivo.assessment/1, spinivo 1.1.0
+  spinivo.assessment/1, spinivo 1.2.0
   Checked purity: cannot be assessed
   Blocking reasons
     calculation only: no spectral evidence
@@ -185,7 +187,7 @@ This excerpt starts at the report heading and ends at the instrument transfer re
 
 ```text
 synthetic-external (external_calibration, external_calibration mode): cannot be assessed
-  spinivo.assessment/1, spinivo 1.1.0
+  spinivo.assessment/1, spinivo 1.2.0
   Checked purity: cannot be assessed
   Baseline shape (baseline-shape/1, diagnostic): computed, 553.24564 % relative standard uncertainty
   Blocking reasons
@@ -218,7 +220,7 @@ The excerpt starts at the report heading and ends at the last `capture_pair` lin
 
 ```text
 synthetic-internal (internal_standard, internal_standard mode): pass
-  spinivo.assessment/1, spinivo 1.1.0
+  spinivo.assessment/1, spinivo 1.2.0
   Checked purity: 0.99919407 fraction
   Baseline shape (baseline-shape/1, diagnostic): computed, 0.0010091736 % relative standard uncertainty
   Checks

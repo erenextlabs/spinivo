@@ -12,6 +12,8 @@ python -m pip install .
 
 Use `inspect` for a JEOL JDF file or Bruker experiment folder. Use `assess` for a JSON assay record. Use `compare` to compare a checked assay with your own certified reference material (CRM). Each command defaults to text and accepts `--format json`. See the [assay record format](docs/assay-record.md) and the [CRM comparison](docs/crm-comparison.md).
 
+Use `assess --format html` to produce a self-contained, printable assessment report.
+
 ```sh
 spinivo inspect /path/to/sample.jdf --format json
 spinivo assess /path/to/assay.json
@@ -24,7 +26,7 @@ Follow the [step-by-step user guide](docs/user-guide.md) to inspect a fixture an
 
 ## Limitations
 
-Spinivo 1.1.0 supports conventional 1D proton qNMR. A checked pass means the documented checks passed for the supplied assay. Spinivo reproduces specified calculations and GUM propagation for supported inputs. Spinivo makes no general purity accuracy claim. Budget completeness and uncertainty coverage on real samples remain unverified. The fraction of eligible preparations that yield checked purity is also unmeasured for both methods.
+Spinivo 1.2.0 supports conventional 1D proton qNMR. A checked pass means the documented checks passed for the supplied assay. Spinivo reproduces specified calculations and GUM propagation for supported inputs. Spinivo makes no general purity accuracy claim. Budget completeness and uncertainty coverage on real samples remain unverified. The fraction of eligible preparations that yield checked purity is also unmeasured for both methods.
 
 Reader and acquisition checks use fixtures. Integral warnings use pilot thresholds, with release scores measured on a frozen synthetic set. The baseline warning has yet to be validated independently. Spinivo reports the effect of baseline shape on the area ratio as a diagnostic and excludes it from the checked-purity budget. Nishizaki spectra and workbooks provide development evidence for both methods. Some pilot area ratios differ from workbook values.
 

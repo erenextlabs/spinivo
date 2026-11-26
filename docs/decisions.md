@@ -4,6 +4,8 @@ Decisions after the plan (docs/plan.md, section 9). Newest first.
 
 ## 25 Nov 2026
 
+23. **Version 1.2.0 release.** Publish the v1.2 work, including the printable HTML assessment report (`spinivo assess --format html`), as version 1.2.0, a regular release, as one follow-up commit on the public `main` under decision 18. The same checks as decision 21 apply. Decision 20 limits stay in force, including no general accuracy claim. Package index publication remains a separate decision. Owner poll, 25 Nov 2026.
+
 22. **User guide update.** Publish the step-by-step user guide (`docs/user-guide.md`), its README link and its output test as one follow-up commit on the public `main` under decision 18, between versions. The package version stays 1.1.0 because the code is unchanged. The same checks as decision 21 apply. Owner poll, 25 Nov 2026.
 
 21. **Version 1.1.0 release.** Publish the v1.1 work as version 1.1.0, a regular release without the preview label, as one follow-up commit on the public `main` under decision 18. Publish only after the candidate passes the test suite, the export and licence checks and two privacy scans. Decision 20 limits stay in force, including no general accuracy claim. Package index publication remains a separate decision. Owner poll, 25 Nov 2026.

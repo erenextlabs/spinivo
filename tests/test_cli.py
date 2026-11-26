@@ -5,6 +5,7 @@ import sys
 import unittest
 from contextlib import redirect_stderr, redirect_stdout
 from copy import deepcopy
+from html import escape
 from io import StringIO
 from pathlib import Path
 from tempfile import TemporaryDirectory
@@ -90,6 +91,55 @@ class CLITests(unittest.TestCase):
             with self.subTest(record=name):
                 self.assert_assessment(records.RECORDS / f"{name}.json", "cannot be assessed",
                                        purity_available=name == records.ENTERED)
+
+    def test_html_format_is_only_for_assess(self):
+        code, stdout, stderr = self.invoke("assess", records.RECORDS / f"{records.ENTERED}.json", "--format", "html")
+        self.assertEqual((code, stderr), (0, ""))
+        self.assertTrue(stdout.startswith("<!DOCTYPE html>"))
+        for command in ("inspect", "compare"):
+            with self.subTest(command=command):
+                code, stdout, stderr = self.invoke(command, "--help")
+                self.assertEqual((code, stderr), (0, ""))
+                self.assertNotIn("html", stdout)
+                code, stdout, stderr = self.invoke(command, "unused", "--format", "html")
+                self.assertEqual((code, stdout), (2, ""))
+                self.assertIn("invalid choice", stderr)
+
+    def test_html_format_writes_utf8_bytes(self):
+        data = {**records.record_data(records.ENTERED), "assay_id": "Café 測定"}
+        result = self.run_cli("assess", self.write_record(data), "--format", "html",
+                              env={"PYTHONIOENCODING": "ascii"}, capture_output=True)
+        self.assertEqual((result.returncode, result.stderr), (0, b""))
+        self.assertIn("<h1>Café 測定</h1>", result.stdout.decode("utf-8"))
+
+    def test_html_for_committed_assessments_hides_local_folders(self):
+        for path in sorted(records.RECORDS.glob("*.json")):
+            with self.subTest(record=path.name):
+                code, page, stderr = self.invoke("assess", path, "--format", "html")
+                self.assertEqual((code, stderr), (0, ""))
+                for folder in (Path.cwd(), Path.home(), path.parent):
+                    self.assertNotIn(escape(str(folder)), page)
+
+    def test_html_hides_record_folder_in_pair_file_error(self):
+        data = records.record_data(records.EXTERNAL)
+        for role in ("sample", "calibrant"):
+            data[role]["file"] = str((records.RECORDS / data[role]["file"]).resolve())
+        filename = "p" * 512
+        data["pair"]["source"] = filename
+        path = self.write_record(data)
+        pair_path = str(path.parent.resolve() / filename)
+
+        code, page, stderr = self.invoke("assess", path, "--format", "html")
+        self.assertEqual((code, stderr), (0, ""))
+        self.assertIn(f".{os.sep}{filename}", page)
+        self.assertNotIn(escape(str(path.parent.resolve())), page)
+
+        code, output, stderr = self.invoke("assess", path)
+        self.assertEqual((code, stderr), (0, ""))
+        self.assertIn(pair_path, output)
+        code, output, stderr = self.invoke("assess", path, "--format", "json")
+        self.assertEqual((code, stderr), (0, ""))
+        self.assertTrue(any(pair_path in reason for reason in json.loads(output)["reasons"]))
 
     def test_assessments_with_missing_evidence(self):
         for name in (records.JEOL, records.EXTERNAL, records.ENTERED):
